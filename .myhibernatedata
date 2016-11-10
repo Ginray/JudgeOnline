@@ -1,0 +1,20 @@
+#MyEclipse Hibernate Properties
+#Wed Nov 09 15:02:45 CST 2016
+genBasicCompId=false
+sessionFactoryName=utils.HibernateSessionFactory
+profile=
+daoSFId=
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=
+configFile=/JudgeOnline/src/hibernate.cfg.xml
+createConfigFile=true
