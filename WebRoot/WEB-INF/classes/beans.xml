@@ -65,4 +65,8 @@
     <bean id="categoryService" class="com.zjgsu.service.CategoryServiceImpl">  
         <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
     </bean>  
+    
+    <bean id="TestAction" class="com.zjgsu.action.TestAction" scope="prototype">  
+    <property name="categoryService" ref="categoryService" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
+	</bean>  
 </beans>
