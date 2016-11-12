@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -7,6 +8,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
+<script type="text/javascript">  
+	function removeCookie(name){
+	/* -1 天后过期即删除 */
+	setCookie(name, 1, -1);
+	}
+</script>
 
 <nav class="navbar navbar-default" role="navigation">
 		<div class="navbar-header">
@@ -49,6 +56,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<%
+				   String username = (String)request.getSession().getAttribute("username"); 
+				%>
+				<%
+					if(username!=null){
+				%>
+				<li><a href="personal_info.jsp">
+					  <%=username %>&nbsp&nbsp 
+				</a></li>
+				<%
+					}
+					else{
+				%>
 				<li><a>
 				<button class="btn btn-primary-sm " data-toggle="modal" data-target="#login">
 					Login
@@ -59,11 +79,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Register
 				</button>
 				</a></li>
+				
+				<%
+					}
+				%>
 			
 			</ul>
 		</div>
 		
 </nav>
+
+
+
+
 
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -76,25 +104,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Login
 				</h4>
 			</div>
+			
+			
+			<form  action ="user_userlogin.action" method = "post">
 			<div class="modal-body">
 				
 				<div class="input-group">
 					<span class="input-group-addon">Username:</span>
-					<input type="text" class="form-control" placeholder="Username">
+					<input type="text" name ="userinfo.username" class="form-control" placeholder="Username">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Password:</span>
-					<input type="text" class="form-control" placeholder="Password">
+					<input type="password" name ="userinfo.password" class="form-control" placeholder="Password">
 				</div><br>
 
 
 			</div>
+			
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Submit
+				<button type="submit" class="btn btn-primary">Submit
 				</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close
 				</button>
 			</div>
+			
+			</form>
 			
 			
 		</div><!-- /.modal-content -->
@@ -113,37 +147,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Register
 				</h4>
 			</div>
+			
+			<form  action ="user_userregister.action" method = "post">
 			<div class="modal-body">
 				
 				<div class="input-group">
 					<span class="input-group-addon">Username:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-					<input type="text" class="form-control" placeholder="Username">
+					<input type="text" name ="userinfo.username" class="form-control" placeholder="Username">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-					<input type="text" class="form-control" placeholder="Password">
+					<input type="password" name ="userinfo.password" class="form-control" placeholder="Password">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Repeat Password:</span>
-					<input type="text" class="form-control" placeholder="Repeat Password">
+					<input type="password" class="form-control" placeholder="Repeat Password">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Nickname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-					<input type="text" class="form-control" placeholder="Nickname">
+					<input type="text" name ="userinfo.nickname" class="form-control" placeholder="Nickname">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-					<input type="text" class="form-control" placeholder="Email">
+					<input type="text" name ="userinfo.email" class="form-control" placeholder="Email">
 				</div><br>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Register
+				<button type="submit" class="btn btn-primary">Register
 				</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close
 				</button>
 			</div>
 			
-			
+			</form>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>

@@ -1,7 +1,10 @@
 package com.zjgsu.service;
 
+import java.util.List;
+
 import model.UserInfo;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
@@ -48,8 +51,15 @@ public class CategoryServiceImpl implements CategoryService{
     @Transactional
     public void update(UserInfo userinfo) {  
         try{
+        	String sql="select * from user_info where username= ? and password=? ";
+        	Query query = getSession().createSQLQuery(sql).addEntity(UserInfo.class);
+        	query.setString(0, "w");
+        	query.setString(1, "w");
+        	List<UserInfo> li = query.list();
+    		//List<UserInfo> list= getSession().createQuery("from UserInfo as user where user.username=:userinfo.username and user.password=:userinfo.password").list(); 
+    		System.out.println("---list"+li.size());
         	//getSession().delete(userinfo);
-        	getSession().save(userinfo);
+        	//getSession().save(userinfo);
         	//getSession().update(userinfo); 
         }catch(Exception e){
         	System.out.println("CategoryServiceImpl修改时发生错误"+e);

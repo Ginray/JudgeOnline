@@ -10,5 +10,13 @@
             <result name="index">/problem.jsp</result>  
         </action>  
     </package>  
+    
+    <package name="user" extends="struts-default">  
+        <!-- category_update.actiocan： 访问update方法 -->  
+        <action name="user_*" class="UserAction" method="{1}">  
+      	    <result name="success">/personal_info.jsp</result>  
+            <result name="fail">/index.jsp</result>  
+        </action>  
+    </package>  
   
 </struts>  
