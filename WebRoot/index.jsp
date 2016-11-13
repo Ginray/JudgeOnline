@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					-- The Art of Unix Programming
 				</p>
 				<p>
-					 <a class="btn btn-primary btn-large" href="#">Learn more</a>
+					 <a class="btn btn-primary btn-large" href="http://www.catb.org/esr/writings/taoup/html/">Learn more</a>
 				</p>
 			</div>
 		</div>

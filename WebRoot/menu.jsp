@@ -8,12 +8,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
-<script type="text/javascript">  
-	function removeCookie(name){
-	/* -1 天后过期即删除 */
-	setCookie(name, 1, -1);
-	}
-</script>
 
 <nav class="navbar navbar-default" role="navigation">
 		<div class="navbar-header">
@@ -62,9 +56,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%
 					if(username!=null){
 				%>
-				<li><a href="personal_info.jsp">
-					  <%=username %>&nbsp&nbsp 
-				</a></li>
+				<li class="dropdown">
+					 <a href="personal_info.jsp" class="dropdown-toggle" data-toggle="dropdown"><%=username %>&nbsp&nbsp <strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							 <a href="personal_info.jsp">Show My Information</a>
+						</li>
+						<li>
+							 <a href ="#" data-toggle="modal" data-target="#modify">Modify My Information</a>
+						</li>
+						<li>
+							 <a href="user_userlogout.action">Logout</a>
+						</li>
+					</ul>
+				</li>
+				
 				<%
 					}
 					else{
@@ -92,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-
+<!--登陆  -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -136,6 +142,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
+<!--注册 -->
+
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -148,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</h4>
 			</div>
 			
-			<form  action ="user_userregister.action" method = "post">
+			<form  action ="user_userregister.action" method = "post" onsubmit="return check();"  >
 			<div class="modal-body">
 				
 				<div class="input-group">
@@ -157,11 +165,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-					<input type="password" name ="userinfo.password" class="form-control" placeholder="Password">
+					<input type="password" name ="userinfo.password" id="password" class="form-control" placeholder="Password">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Repeat Password:</span>
-					<input type="password" class="form-control" placeholder="Repeat Password">
+					<input type="password" class="form-control" id="repsword"  placeholder="Repeat Password">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Nickname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -185,5 +193,86 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
+
+<!--修改  -->
+<div class="modal fade" id="modify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					Modify
+				</h4>
+			</div>
+			
+			<form  action ="user_usermodify.action" method = "post" onsubmit="return checkmo();" >
+			<div class="modal-body">
+				
+				<div class="input-group">
+					<span class="input-group-addon">Username:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<input type="text" name ="userinfo.username" class="form-control" placeholder=<%=username %> disabled>
+				</div><br>
+				<div class="input-group">
+					<span class="input-group-addon">New Password:&nbsp&nbsp&nbsp&nbsp</span>
+					<input type="password" name ="userinfo.password" id= "mopassword" class="form-control" placeholder="New Password">
+				</div><br>
+				<div class="input-group">
+					<span class="input-group-addon">Repeat Password:</span>
+					<input type="password" class="form-control" id="morepsword" placeholder="Repeat Password">
+				</div><br>
+				<div class="input-group">
+					<span class="input-group-addon">Nickname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<input type="text" name ="userinfo.nickname" class="form-control" placeholder="Nickname">
+				</div><br>
+				<div class="input-group">
+					<span class="input-group-addon">Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<input type="text" name ="userinfo.email" class="form-control" placeholder="Email">
+				</div><br>
+				
+			</div>
+			
+			
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary">Modify
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close
+				</button>
+			</div>
+			
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+
+<script>
+function check(){
+	   var password = document.getElementById("password").value;
+	   var repsword = document.getElementById("repsword").value;
+	   if(password === ''){
+	      alert('密码不能为空');
+	      return false;
+	   }
+	   if(password != repsword) {
+	      alert("两次密码不同，请重新输入");
+	      return false;
+	   }
+}
+
+function checkmo(){
+	   var password = document.getElementById("mopassword").value;
+	   var repsword = document.getElementById("morepsword").value;
+	   if(password === ''){
+	      alert('密码不能为空');
+	      return false;
+	   }
+	   if(password != repsword) {
+	      alert("两次密码不同，请重新输入");
+	      return false;
+	   }
+}
+</script>
 
 </html>

@@ -47,4 +47,22 @@ public class UserAction extends ActionSupport{
 			return "fail";
 		}
 	}
+	
+	public String userlogout(){
+		try{
+			userservice.logout(userinfo);
+			return "success";
+		}catch( Exception e){
+			return "fail";
+		}
+	}
+	
+	public String usermodify(){
+		try{
+			userservice.modify(userinfo);
+			return "success";
+		}catch( Exception e){
+			return "fail";
+		}
+	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.UserInfo;
 
@@ -46,16 +47,18 @@ public class UserServiceImpl implements UserService {
     		if(li.size()>0){
  		
 	    		//cookie保存时，如果用户名或密码有汉字或者其他特殊字符需要进行编码
-	    		Cookie c1=new Cookie("username",URLEncoder.encode(userinfo.getUsername(),"UTF-8"));
-	    		Cookie c2=new Cookie("password",userinfo.getPassword());
-	    		c1.setMaxAge(3600);
-	    		c2.setMaxAge(3600);
-	    		HttpServletResponse response=ServletActionContext.getResponse();  
+	    		//Cookie c1=new Cookie("username",URLEncoder.encode(userinfo.getUsername(),"UTF-8"));
+	    		//Cookie c2=new Cookie("password",userinfo.getPassword());
+	    		//c1.setMaxAge(3600);
+	    		//c2.setMaxAge(3600);
+	    		//HttpServletResponse response=ServletActionContext.getResponse();  
 	    		HttpServletRequest  request=ServletActionContext.getRequest();  
-	    		response.addCookie(c1);
-	    		response.addCookie(c2); 
-	    		request.getSession().setAttribute("username", userinfo.getUsername());
-	    		request.getSession().setAttribute("password", userinfo.getPassword());
+	    		//response.addCookie(c1);
+	    		//response.addCookie(c2); 
+	    		request.getSession().setAttribute("username", li.get(0).getUsername());
+	    		request.getSession().setAttribute("password", li.get(0).getPassword());
+	    		request.getSession().setAttribute("nickname", li.get(0).getNickname());
+	    		request.getSession().setAttribute("email", li.get(0).getEmail());
 	    		return "success";
     		}
     			
@@ -65,7 +68,7 @@ public class UserServiceImpl implements UserService {
         	//getSession().save(userinfo);
         	//getSession().update(userinfo); 
         }catch(Exception e){
-        	System.out.println("UserServiceImpl修改时发生错误"+e);
+        	System.out.println("UserServiceImpl login时发生错误"+e);
         	return "fail";
         }		
 	}
@@ -84,23 +87,63 @@ public class UserServiceImpl implements UserService {
     		}
     			
     		else{
-    			getSession().save(userinfo);
-	    		Cookie c1=new Cookie("username",URLEncoder.encode(userinfo.getUsername(),"UTF-8"));
-	    		Cookie c2=new Cookie("password",userinfo.getPassword());
-	    		c1.setMaxAge(3600);
-	    		c2.setMaxAge(3600);
-	    		HttpServletResponse response=ServletActionContext.getResponse();  
+    			getSession().save(userinfo); 
 	    		HttpServletRequest  request=ServletActionContext.getRequest();  
-	    		response.addCookie(c1);
-	    		response.addCookie(c2); 
+	    		
 	    		request.getSession().setAttribute("username", userinfo.getUsername());
+	    		request.getSession().setAttribute("nickname", userinfo.getNickname());
+	    		request.getSession().setAttribute("email", userinfo.getEmail());
 	    		request.getSession().setAttribute("password", userinfo.getPassword());
     			return "success";
     		}
         }catch(Exception e){
-        	System.out.println("UserServiceImpl update时发生错误"+e);
+        	System.out.println("UserServiceImpl register时发生错误"+e);
         	return "fail";
         }	
 	}
+	
+	
+	@Override
+	public void logout(UserInfo userinfo) {
+		try{
+			HttpServletRequest  request=ServletActionContext.getRequest();  
+			HttpSession session = request.getSession();
+			session.removeAttribute("username");
+			session.removeAttribute("password");
+			session.removeAttribute("nickname");
+			session.removeAttribute("email");
+		}catch (Exception e){
+			System.out.println("UserServiceImpl logout时发生错误"+e);
+		}
+	}
 
+	
+	@Override
+	public void modify(UserInfo userinfo) {
+		try{
+			HttpServletRequest  request=ServletActionContext.getRequest();  
+			String sessionname= (String)request.getSession().getAttribute("username");
+			userinfo.setUsername(sessionname);
+			String sql="select * from user_info where username= ? and password=? ";
+        	Query query = getSession().createSQLQuery(sql).addEntity(UserInfo.class);
+        	query.setString(0, userinfo.getUsername());
+        	query.setString(1, userinfo.getPassword());
+        	List<UserInfo> li = query.list();
+    		if(li.size()>0){
+    			userinfo.setUid(li.get(0).getUid());
+	    		request.getSession().setAttribute("nickname", userinfo.getNickname());
+	    		request.getSession().setAttribute("email", userinfo.getEmail());
+	    		request.getSession().setAttribute("password", userinfo.getPassword());
+    			getSession().merge(userinfo);
+	    		getSession().update(userinfo);
+    		}
+    			
+    		else{
+    			return;
+    		}
+			
+		}catch (Exception e){
+			System.out.println("UserServiceImpl modify时发生错误"+e);
+		}
+	}
 }

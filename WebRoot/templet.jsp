@@ -29,6 +29,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<jsp:include page = "menu.jsp"></jsp:include>
+			
+			
+			
 		</div>
 		
 		

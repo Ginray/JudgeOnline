@@ -29,17 +29,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<jsp:include page = "menu.jsp"></jsp:include>
-		</div>
-		<div class="jumbotron">
-	
-				<p>
-					this is personal_info.jsp
-		     	</p>
-				<p>
-					TODO……		
-				</p>
+			
+
+			
+			
+			<div class="jumbotron">
+				<%
+				   String username = (String)request.getSession().getAttribute("username"); 
+				   String nickname = (String)request.getSession().getAttribute("nickname");
+				   String email = (String)request.getSession().getAttribute("email"); 
+				%>
+				<h3>
+					<strong>Information of <%=username %>:</strong>
+				</h3>
+				<ul class="list-group">
+				<li class="list-group-item">Username :&nbsp&nbsp&nbsp<%=username %></li>
+				<li class="list-group-item">Nickname :&nbsp&nbsp&nbsp<%=nickname %> </li>
+				<li class="list-group-item">Email&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp :&nbsp&nbsp&nbsp<%=email %></li>
+				
+				</ul>
 
 			</div>
+		</div>
 
 		
 	</div>
