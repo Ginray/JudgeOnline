@@ -21,122 +21,148 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="js/bootstrap.js"></script>
     
     <link rel="Shortcut Icon" href="img/zjgsu.png" /> 
+    <style type="text/css">
+     .h.jumbotron{
+         padding: 5px;
+		 padding-left: 50px;
+     }
+   </style>
     
   </head>
-
-<body>
+  
+  <body>
 	<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<jsp:include page = "menu.jsp"></jsp:include>
 		</div>
+		<div class="col-md-12 column ">
+			<h1 class="text-center text-primary">A+B problem</h1>
+			<!-- 
+			 关于文本字体颜色：text-muted（灰色 色值为#777），text-primary（蓝色 #428bca），
+			 text-success（绿色 #5cb85c）,text-info（浅蓝色 #5bc0de），
+			 text-warning（橙色  #f0ad4e），text-danger（红色 #d9534f）
+			
+			  关于背景颜色：bg-primary（蓝色 #428bca），bg-info（浅蓝色  #5bc0de）,
+			 bg-waring（橙色 #f0ad4e），bg-success（绿色 #5cb85c），bg-danger（红 #d9534f）
+			 -->
+			 <h5 class="text-center text-info">
+			Time Limit: 1000ms&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			Memory Limit: 32768KB <br>
+			64-bit integer IO format: %lld &nbsp&nbsp&nbsp&nbsp&nbsp&nbspJava class name: Main 
+			</h5>
+			<h3 class="text-info">Problem</h3>  	
+			<div class="h jumbotron">
+			<h4 class="text-left" >
+				Calculate a+b.
+			</h4>
+			</div>
+			<h3 class="text-info">Input</h3>
+			<div class="h jumbotron">
+			<h4 class="text-left" >
+				Two integer a and b per line.
+			</h4>
+			</div>
+		 	<h3 class="text-info">Output</h3>
+			<div class="h jumbotron">
+			<h4 class="text-left" >
+				Output a+b for each line.
+			</h4>
+			</div>
+			<h3 class="text-info">Sample Input </h3>
+			<div class="h jumbotron">
+			<h4 class="text-left" >
+				1 2<br>
+				-5 6
+			</h4>
+			</div>
+			<h3 class="text-info">Sample Output </h3>
+			<div class="h jumbotron">
+			<h4 class="text-left" >
+				3<br>
+				1
+			</h4>
+			</div>
+			<h3 class="text-info">Hint </h3>
+			<div class="h jumbotron">
+			<h4 class="text-left" >
+				0.0
+			</h4>
+			</div>
+			
+			<br>
+			<center>
+			<div class="btn-group ">
+			    <button type="button" class="btn btn-default btn-primary" data-toggle="modal" data-target="#submit">Submit</button>
+			    <button type="button" class="btn btn-default">Status</button>
+			    <button type="button" class="btn btn-default">Statistic</button>
+			    <button type="button" class="btn btn-default">Discuss</button>
+			</div>
+			
+			<br><br><br><br>
+			</center>
 	</div>
 	
-	<div class="col-md-12 column">
-	<div class="row clearfix">
-	<div class="col-md-7 column">
-		<br><!-- 需要一个换行才能对齐，原因还在查询 -->
-		<div class="input-group">
-    	<input type="text" class="form-control input"><span class="input-group-addon btn btn-primary">Search</span>
-		</div>
+			
+			
 	</div>
-	<div class="col-md-5 column">
-		<ul class="pagination ">
-			<li>
-				 <a href="#">Prev</a>
-			</li>
-			<li>
-				 <a href="#">1</a>
-			</li>
-			<li>
-				 <a href="#">2</a>
-			</li>
-			<li>
-				 <a href="#">3</a>
-			</li>
-			<li>
-				 <a href="#">4</a>
-			</li>
-			<li>
-				 <a href="#">5</a>
-			</li>
-			<li>
-				 <a href="#">6</a>
-			</li>
-			<li>
-				 <a href="#">7</a>
-			</li>
-			<li>
-				 <a href="#">8</a>
-			</li>
-			<li>
-				 <a href="#">Next</a>
-			</li>
-		</ul>
-	</div>
-
-	</div>
-	
-	
-	
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>PID</th>
-      <th>Title</th>
-      <th>Source</th>
-      <th>AC</th>
-      <th>All</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1001</td>
-      <td>A + B Problem</td>
-      <td>HDU</td>
-      <td>192636</td>
-      <td>616339</td>
-    </tr>
-    <tr>
-      <td>1002</td>
-      <td>Sum Problem</td>
-      <td>HDU</td>
-      <td>110011</td>
-      <td>438162</td>
-    </tr>
-    <tr>
-      <td>1002</td>
-      <td>A + B Problem II</td>
-      <td>HDU</td>
-      <td>63683</td>
-      <td>328034</td>
-    </tr>
-    <tr>
-      <td>1003</td>
-      <td>A + B Problem III</td>
-      <td>HDU</td>
-      <td>63683</td>
-      <td>328034</td>
-    </tr>
-    <tr>
-      <td>1004</td>
-      <td>A + B Problem IV</td>
-      <td>HDU</td>
-      <td>63683</td>
-      <td>328034</td>
-    </tr>
-  </tbody>
-</table>
-
+		
 	</div>
 
-	
-	
-	
-	
-	
-	</div>
+
 
  </body>
+  
+<!--提交  -->
+<div class="modal fade form-inline"  id="submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:800px">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title text-primary" id="myModalLabel">
+					Submit your code
+				</h4>
+			</div>
+			<%
+				   String username = (String)request.getSession().getAttribute("username"); 
+			%>
+			<center>
+			<h4>
+				Username:&nbsp&nbsp&nbsp<%=username %>
+				<br>
+				
+				Language: 
+				<select class="combobox form-control">
+				  <option value="GNU_C">GNU C</option>
+				  <option value="GNU_C++">GNU C++</option>
+				  <option value="JAVA">JAVA</option>
+				</select>
+				
+			</h4>
+			</center>
+			<form  action ="user_usermodify.action" method = "post"  >
+			<div class="modal-body">
+				<center><h4>Source Code: </h4><center>
+				<textarea class="form-control" rows="30" cols="90"></textarea>
+				
+				
+			</div>
+			
+			
+			<div class="modal-footer ">
+				<button type="submit" class="btn btn-primary btn-center">Submit
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close
+				</button>
+			</div>
+			
+			
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+  
   
 </html>

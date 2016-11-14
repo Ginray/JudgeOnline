@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li >
-					 <a href="problem.jsp">Problem</a>
+					 <a href="problem_list.jsp">Problem</a>
 				</li>
 				<li>
 					 <a href="#">Status</a>
@@ -76,13 +76,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					else{
 				%>
 				<li><a>
-				<button class="btn btn-primary-sm " data-toggle="modal" data-target="#login">
-					Login
+				<button class="btn btn-primary-sm " data-toggle="modal" data-target="#register">
+					Register
 				</button>
 				</a></li>
 				<li><a>
-				<button class="btn btn-primary " data-toggle="modal" data-target="#register">
-					Register
+				<button class="btn btn-primary " data-toggle="modal" data-target="#login">
+					Login
 				</button>
 				</a></li>
 				
