@@ -18,5 +18,13 @@
             <result name="fail">/index.jsp</result>  
         </action>  
     </package>  
+    
+   <package name="judge" extends="struts-default">  
+        <!-- category_update.actiocan： 访问update方法 -->  
+        <action name="judge_*" class="JudgeAction" method="{1}">  
+      	    <result name="success">/index.jsp</result>  
+            <result name="fail">/index.jsp</result>  
+        </action>  
+    </package>  
   
 </struts>  

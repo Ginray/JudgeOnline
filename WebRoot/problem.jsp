@@ -142,10 +142,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 			</h4>
 			</center>
-			<form  action ="user_usermodify.action" method = "post"  >
+			<form  action ="judge_submitCode.action" method = "post"  >
 			<div class="modal-body">
 				<center><h4>Source Code: </h4><center>
-				<textarea class="form-control" rows="30" cols="90"></textarea>
+				<textarea class="form-control" name= "submitproblem.codetext" rows="30" cols="90"></textarea>
 				
 				
 			</div>
