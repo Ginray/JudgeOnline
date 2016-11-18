@@ -120,7 +120,7 @@ public class Executor {
 		
 	}
 	private boolean checkAnswerFromTarget(){
-		target.output=target.output.replaceAll("\n","");
+		//target.output=target.output.replaceAll("\n","");
 		System.out.println("-----target.output"+target.output);
 		System.out.println("-----result.outExecute"+result.outExecute);
 		if(target.output.equals(result.outExecute)){
