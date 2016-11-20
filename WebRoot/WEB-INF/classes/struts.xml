@@ -27,4 +27,12 @@
         </action>  
     </package>  
   
+    <package name="problem" extends="struts-default">  
+        <!-- category_update.actiocan： 访问update方法 -->  
+        <action name="problem_*" class="ProblemAction" method="{1}">  
+      	    <result name="success">/status.jsp</result>  
+            <result name="fail">/status.jsp</result>  
+        </action>  
+    </package>  
+  
 </struts>  

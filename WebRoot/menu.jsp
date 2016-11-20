@@ -19,10 +19,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 <a href="problem_list.jsp">Problem</a>
 				</li>
 				<li>
-					 <a href="#">Status</a>
+					 <a href="status.jsp">Status</a>
 				</li>
 				<li>
-					 <a href="#">Ranklist</a>
+					 <a href="ranklist.jsp">Ranklist</a>
 				</li>
 				<li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<strong class="caret"></strong></a>

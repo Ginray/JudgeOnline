@@ -41,7 +41,7 @@ public class test_ssh {
     //注意：在修改的时候一定要有主键
     @Test //测试Hibernate和Spring整合后  
     public void hibernateAndSpring() {  
-        categoryService.update(new UserInfo(4,"e","e","e","e")); //categoryService通过Spring从上面注入进来的  
+        categoryService.update(new UserInfo("e","e","e","e")); //categoryService通过Spring从上面注入进来的  
     }  
     
 }

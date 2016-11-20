@@ -1,6 +1,6 @@
 #MyEclipse Hibernate Properties
-#Wed Nov 09 15:02:45 CST 2016
-genBasicCompId=false
+#Sun Nov 20 19:05:18 CST 2016
+genBasicCompId=true
 sessionFactoryName=utils.HibernateSessionFactory
 profile=
 daoSFId=
@@ -14,7 +14,7 @@ keyGenerator=native
 genVersionTag=false
 sessionFactoryId=
 basePersistenceClass=
-genAnnotations=false
+genAnnotations=true
 reSettingsFile=
 configFile=/JudgeOnline/src/hibernate.cfg.xml
 createConfigFile=true
