@@ -8,7 +8,6 @@ import model.SubmitProblem;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.zjgsu.manager.JugeManager;
 import com.zjgsu.oj.JugeSystem;
 
 import org.hibernate.Session;

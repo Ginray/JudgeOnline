@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Vector;
 
 import model.Submitstate;
+import model.UserInfo;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -43,5 +44,15 @@ public class ProblemServiceImpl implements  ProblemService{
 			System.out.println("ProblemServiceImpl出错");
 			return null;
 		}
+	}
+	
+	@Override
+	public void saveState(Submitstate submitstate){
+        try{
+        	getSession().save(submitstate);
+        	
+        }catch(Exception e){
+        	System.out.println("CategoryServiceImpl  saveState 时发生错误"+e);
+        }
 	}
 }

@@ -22,8 +22,8 @@
    <package name="judge" extends="struts-default">  
         <!-- category_update.actiocan： 访问update方法 -->  
         <action name="judge_*" class="JudgeAction" method="{1}">  
-      	    <result name="success">/problem.jsp</result>  
-            <result name="fail">/peoblem.jsp</result>  
+      	    <result name="success">/status.jsp</result>  
+            <result name="fail">/problem.jsp</result>  
         </action>  
     </package>  
   
