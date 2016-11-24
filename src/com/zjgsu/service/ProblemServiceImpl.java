@@ -49,7 +49,8 @@ public class ProblemServiceImpl implements  ProblemService{
 	@Override
 	public void saveState(Submitstate submitstate){
         try{
-        	getSession().save(submitstate);
+    		Session s=HibernateSessionFactory.getSession();
+        	s.save(submitstate);
         	
         }catch(Exception e){
         	System.out.println("CategoryServiceImpl  saveState 时发生错误"+e);

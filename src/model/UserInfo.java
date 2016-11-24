@@ -13,6 +13,8 @@ public class UserInfo implements java.io.Serializable {
 	private String password;
 	private String nickname;
 	private String email;
+	private Integer submit;
+	private Integer accept;
 
 	// Constructors
 
@@ -20,14 +22,6 @@ public class UserInfo implements java.io.Serializable {
 	public UserInfo() {
 	}
 
-	public UserInfo(int uid ,String username, String password, String nickname,String email) {
-		this.uid=uid;
-		this.username = username;
-		this.password = password;
-		this.nickname = nickname;
-		this.email    = email;
-	}
-	
 	/** minimal constructor */
 	public UserInfo(String username, String password, String nickname) {
 		this.username = username;
@@ -37,11 +31,13 @@ public class UserInfo implements java.io.Serializable {
 
 	/** full constructor */
 	public UserInfo(String username, String password, String nickname,
-			String email) {
+			String email, Integer submit, Integer accept) {
 		this.username = username;
 		this.password = password;
 		this.nickname = nickname;
 		this.email = email;
+		this.submit = submit;
+		this.accept = accept;
 	}
 
 	// Property accessors
@@ -84,6 +80,22 @@ public class UserInfo implements java.io.Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Integer getSubmit() {
+		return this.submit;
+	}
+
+	public void setSubmit(Integer submit) {
+		this.submit = submit;
+	}
+
+	public Integer getAccept() {
+		return this.accept;
+	}
+
+	public void setAccept(Integer accept) {
+		this.accept = accept;
 	}
 
 }
