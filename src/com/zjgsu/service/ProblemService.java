@@ -8,4 +8,5 @@ import model.Submitstate;
 public interface ProblemService {
 	public List<Submitstate> showState();
 	public void saveState(Submitstate submitstate);
+	public String findUsername(int cid);
 }

@@ -85,6 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <thead>
     <tr>
       <th>RunID</th>
+      <th>Problem ID</th>
       <th>Username</th>
       <th>Result</th>
       <th>Language</th>
@@ -102,11 +103,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			List<Submitstate> sumitStates = problemservice.showState();
 			for (int i = 0; i < sumitStates.size(); i++) {
 				Submitstate s = sumitStates.get(i);
-
+				String nickname = problemservice.findUsername(s.getUserId());
 	%>
     <tr>
       <td><%=s.getId() %></td>
-      <td><%=s.getCid()%></td>
+      <td><%=s.getProblemId() %></td>
+      <td><%=nickname%></td>
       <%
       		String color;
       		String state=s.getState();

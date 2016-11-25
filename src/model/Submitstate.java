@@ -19,7 +19,8 @@ public class Submitstate implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Integer cid;
+	private Integer problemId;
+	private Integer userId;
 	private String state;
 	private String codeType;
 	private String memory;
@@ -34,15 +35,18 @@ public class Submitstate implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Submitstate(Integer cid, Date submitDate) {
-		this.cid = cid;
+	public Submitstate(Integer problemId, Integer userId, Date submitDate) {
+		this.problemId = problemId;
+		this.userId = userId;
 		this.submitDate = submitDate;
 	}
 
 	/** full constructor */
-	public Submitstate(Integer cid, String state, String codeType,
-			String memory, String runtime, Date submitDate, Integer codeLength) {
-		this.cid = cid;
+	public Submitstate(Integer problemId, Integer userId, String state,
+			String codeType, String memory, String runtime, Date submitDate,
+			Integer codeLength) {
+		this.problemId = problemId;
+		this.userId = userId;
 		this.state = state;
 		this.codeType = codeType;
 		this.memory = memory;
@@ -63,13 +67,22 @@ public class Submitstate implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "cid", nullable = false)
-	public Integer getCid() {
-		return this.cid;
+	@Column(name = "problem_id", nullable = false)
+	public Integer getProblemId() {
+		return this.problemId;
 	}
 
-	public void setCid(Integer cid) {
-		this.cid = cid;
+	public void setProblemId(Integer problemId) {
+		this.problemId = problemId;
+	}
+
+	@Column(name = "user_id", nullable = false)
+	public Integer getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	@Column(name = "state", length = 20)

@@ -1,9 +1,16 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * UserInfo entity. @author MyEclipse Persistence Tools
  */
-
+@Entity
+@Table(name = "user_info", catalog = "zjgsu_oj")
 public class UserInfo implements java.io.Serializable {
 
 	// Fields
@@ -41,7 +48,9 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	// Property accessors
-
+	@Id
+	@GeneratedValue
+	@Column(name = "uid", unique = true, nullable = false)
 	public Integer getUid() {
 		return this.uid;
 	}
@@ -50,6 +59,7 @@ public class UserInfo implements java.io.Serializable {
 		this.uid = uid;
 	}
 
+	@Column(name = "username", nullable = false, length = 30)
 	public String getUsername() {
 		return this.username;
 	}
@@ -58,6 +68,7 @@ public class UserInfo implements java.io.Serializable {
 		this.username = username;
 	}
 
+	@Column(name = "password", nullable = false, length = 30)
 	public String getPassword() {
 		return this.password;
 	}
@@ -66,6 +77,7 @@ public class UserInfo implements java.io.Serializable {
 		this.password = password;
 	}
 
+	@Column(name = "nickname", nullable = false, length = 30)
 	public String getNickname() {
 		return this.nickname;
 	}
@@ -74,6 +86,7 @@ public class UserInfo implements java.io.Serializable {
 		this.nickname = nickname;
 	}
 
+	@Column(name = "email", length = 30)
 	public String getEmail() {
 		return this.email;
 	}
@@ -82,6 +95,7 @@ public class UserInfo implements java.io.Serializable {
 		this.email = email;
 	}
 
+	@Column(name = "submit")
 	public Integer getSubmit() {
 		return this.submit;
 	}
@@ -90,6 +104,7 @@ public class UserInfo implements java.io.Serializable {
 		this.submit = submit;
 	}
 
+	@Column(name = "accept")
 	public Integer getAccept() {
 		return this.accept;
 	}

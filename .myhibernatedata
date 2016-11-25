@@ -1,5 +1,5 @@
 #MyEclipse Hibernate Properties
-#Thu Nov 24 23:04:47 CST 2016
+#Fri Nov 25 15:29:59 CST 2016
 genBasicCompId=true
 sessionFactoryName=utils.HibernateSessionFactory
 profile=
@@ -14,7 +14,7 @@ keyGenerator=native
 genVersionTag=false
 sessionFactoryId=
 basePersistenceClass=
-genAnnotations=false
+genAnnotations=true
 reSettingsFile=
 configFile=/JudgeOnline/src/hibernate.cfg.xml
 createConfigFile=true

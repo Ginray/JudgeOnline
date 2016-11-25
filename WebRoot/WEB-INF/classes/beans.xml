@@ -23,7 +23,10 @@
     <!-- org.springframework.orm.hibernate4.LocalSessionFactoryBean类在spring-orm-4.2.4.RELEASE.jar包的org.springframework.orm.hibernate4包中 -->  
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
          <property name="dataSource" ref="dataSource" />  
-         <property name="configLocation" value="classpath:hibernate.cfg.xml" /> <!-- 加载hibernate配置文件 -->  
+         
+         <!-- 加载hibernate配置文件 -->  
+         <property name="configLocation" value="classpath:hibernate.cfg.xml" /> 
+         
     </bean>  
     
     <!-- 配置事务管理器:事务管理器，是用来管理sessionFactory的，这样所有的由sessionFactory产生的session将会有声明式的管理 -->

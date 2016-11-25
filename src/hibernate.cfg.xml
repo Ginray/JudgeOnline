@@ -28,9 +28,9 @@
 		<property name="show_sql">true</property>
 
 
-		<mapping resource="model/UserInfo.hbm.xml" />
 		<mapping class="model.Submitstate" />
 		<mapping class="model.UserInfo" />
+
 
 	</session-factory>
 

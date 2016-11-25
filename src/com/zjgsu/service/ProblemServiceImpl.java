@@ -34,7 +34,7 @@ public class ProblemServiceImpl implements  ProblemService{
     
 	@Override
 	public List<Submitstate> showState() {
-		String sql="select * from submitstate";
+		String sql="select * from submitstate order by id desc ";
 		Session s=HibernateSessionFactory.getSession();
 		Query query = s.createSQLQuery(sql).addEntity(Submitstate.class);
 		List<Submitstate> li = query.list();
@@ -55,5 +55,19 @@ public class ProblemServiceImpl implements  ProblemService{
         }catch(Exception e){
         	System.out.println("CategoryServiceImpl  saveState 时发生错误"+e);
         }
+	}
+	
+	@Override
+	public String findUsername(int cid) {
+		String sql="select * from user_info where uid = "+cid;
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(UserInfo.class);
+		List<UserInfo> li = query.list();
+		if(li.size()>0){
+			return li.get(0).getNickname();
+		}else{
+			System.out.println("ProblemServiceImpl findUsername 出错");
+			return null;
+		}
 	}
 }

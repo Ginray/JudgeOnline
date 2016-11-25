@@ -59,10 +59,11 @@ public class JugeManager {
 	 * 
 	 */
 	public void setJugeResult() { // 结果提交到数据库
-		/*
-		 * 测试是否能加入到数据库
+		
+		/* 测试是否能加入到数据库
 		Submitstate submitstate = new Submitstate();
-		submitstate.setCid(100);
+		submitstate.setUserId(100);
+		submitstate.setProblemId(1);
 		submitstate.setCodeLength(1);
 		submitstate.setCodeType("Java");
 		submitstate.setId(100);
@@ -70,7 +71,7 @@ public class JugeManager {
 		submitstate.setRuntime("12345");
 		submitstate.setState("AC");
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
  		Date date = null;
  		try {
 			date = formatter.parse("2016-11-24");
