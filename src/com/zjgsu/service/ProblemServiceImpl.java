@@ -3,6 +3,7 @@ package com.zjgsu.service;
 import java.util.List;
 import java.util.Vector;
 
+import model.Problem;
 import model.Submitstate;
 import model.UserInfo;
 
@@ -70,4 +71,19 @@ public class ProblemServiceImpl implements  ProblemService{
 			return null;
 		}
 	}
+	
+	@Override
+	public List<Problem> showProblem() {
+		String sql="select * from problem";
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(Problem.class);
+		List<Problem> li = query.list();
+		if(li.size()>0){
+			return li;
+		}else{
+			System.out.println("ProblemServiceImpl出错");
+			return null;
+		}
+	}
+	
 }

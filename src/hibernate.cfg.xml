@@ -30,6 +30,7 @@
 
 		<mapping class="model.Submitstate" />
 		<mapping class="model.UserInfo" />
+		<mapping class="model.Problem" />
 
 
 	</session-factory>

@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="com.zjgsu.service.*"%>
+<%@ page language="java" import="model.*"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -89,7 +91,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <th>All</th>
     </tr>
   </thead>
+  
   <tbody>
+  
+  
+   <%
+		try {
+			ProblemService problemservice = new ProblemServiceImpl();
+			List<Problem> problemList = problemservice.showProblem();
+			for (int i = 0; i < problemList.size(); i++) {
+				Problem p = problemList.get(i);
+			
+	%>
+  			<tr>
+		    <td><%=p.getProblemId() %></td>
+		    <td><a href ="problem.jsp">A + B Problem</a></td>
+		    <td><%=p.getSource() %></td>
+		    <td><%=p.getAccepted() %></td>
+		    <td><%=p.getSubmit() %></td>
+		    </tr>
+    <%
+			}
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+  
+    %>
+  
+  
     <tr>
       <td>1001</td>
       <td><a href ="problem.jsp">A + B Problem</a></td>
