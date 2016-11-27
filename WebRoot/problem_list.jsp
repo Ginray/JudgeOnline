@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	%>
   			<tr>
 		    <td><%=p.getProblemId() %></td>
-		    <td><a href ="problem.jsp">A + B Problem</a></td>
+		    <td><a href="problem_showProblem.action?problemId=<%=p.getProblemId() %>"><%=p.getTitle() %></a></td>
 		    <td><%=p.getSource() %></td>
 		    <td><%=p.getAccepted() %></td>
 		    <td><%=p.getSubmit() %></td>

@@ -1,9 +1,12 @@
 package com.zjgsu.manager;
 
+import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
+import model.Submitstate;
 
 import com.zjgsu.oj.JugeSystem;
 import com.zjgsu.oj.OutResult;
@@ -52,8 +55,36 @@ public class JugeManager {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	public void setJugeResult() { // 结果提交到数据库
 		
-//			
+		/* 测试是否能加入到数据库
+		Submitstate submitstate = new Submitstate();
+		submitstate.setUserId(100);
+		submitstate.setProblemId(1);
+		submitstate.setCodeLength(1);
+		submitstate.setCodeType("Java");
+		submitstate.setId(100);
+		submitstate.setMemory("12345");
+		submitstate.setRuntime("12345");
+		submitstate.setState("AC");
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+ 		Date date = null;
+ 		try {
+			date = formatter.parse("2016-11-24");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		submitstate.setSubmitDate(date);
+
+		ProblemService problemservice = new ProblemServiceImpl();
+		problemservice.saveState(submitstate);
+		*/
 	}
+	
+	
 }

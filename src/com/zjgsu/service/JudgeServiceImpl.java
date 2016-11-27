@@ -8,6 +8,7 @@ import model.SubmitProblem;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.zjgsu.manager.JugeManager;
 import com.zjgsu.oj.JugeSystem;
 
 import org.hibernate.Session;
@@ -46,7 +47,6 @@ public class JudgeServiceImpl implements JudgeService{
 			HttpServletRequest  request=ServletActionContext.getRequest();  
 			HttpSession session = request.getSession();
 			String username = (String) session.getAttribute("username");
-			
 			//servletContext中对象存取的数据是个全局的，生命周期也是长久的，直到web服务器关闭 
 			ServletContext application=request.getSession().getServletContext(); 
 			Thread jugeSystem=(JugeSystem)application.getAttribute("jugeSystem");
