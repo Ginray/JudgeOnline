@@ -85,5 +85,19 @@ public class ProblemServiceImpl implements  ProblemService{
 			return null;
 		}
 	}
+
+	@Override
+	public Problem getProblemById(String id) {
+		String sql="select * from problem where problem_id = "+id;
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(Problem.class);
+		List<Problem> li = query.list();
+		if(li.size()>0){
+			return li.get(0);
+		}else{
+			System.out.println("ProblemServiceImpl getProblemById 出错");
+			return null;
+		}
+	}
 	
 }

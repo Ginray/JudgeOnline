@@ -6,11 +6,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import model.Submitstate;
 
 import com.zjgsu.oj.JugeSystem;
 import com.zjgsu.oj.OutResult;
 import com.zjgsu.oj.Target;
+import com.zjgsu.service.ProblemService;
+import com.zjgsu.service.ProblemServiceImpl;
 
 public class JugeManager {
 	private JugeSystem system = null;
@@ -60,7 +66,8 @@ public class JugeManager {
 	 */
 	public void setJugeResult() { // 结果提交到数据库
 		
-		/* 测试是否能加入到数据库
+		//测试是否能加入到数据库
+		/*
 		Submitstate submitstate = new Submitstate();
 		submitstate.setUserId(100);
 		submitstate.setProblemId(1);
@@ -70,6 +77,10 @@ public class JugeManager {
 		submitstate.setMemory("12345");
 		submitstate.setRuntime("12345");
 		submitstate.setState("AC");
+		
+		HttpServletRequest  request=ServletActionContext.getRequest();  
+		
+		
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
  		Date date = null;
@@ -83,6 +94,39 @@ public class JugeManager {
 
 		ProblemService problemservice = new ProblemServiceImpl();
 		problemservice.saveState(submitstate);
+		*/
+		
+		/*
+		Submitstate submitstate = new Submitstate();
+		submitstate.setUserId(100);
+		submitstate.setProblemId(1);
+		submitstate.setId(100);
+
+	
+		
+		
+		OutResult result = system.getResult();
+		String code = system.getCode();
+		System.out.println(result.targetId + " id");
+		String[] pu = result.targetId.split("_");
+		SimpleDateFormat dayFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss");
+
+		submitstate.setState(result.getState());
+		submitstate.setCodeType("java");
+		submitstate.setMemory(String.valueOf(result.getMemory()));
+		submitstate.setRuntime(String.valueOf(result.getTime()));
+		submitstate.setSubmitDate(new Date());
+		submitstate.setCodeLength(Integer.parseInt(String.valueOf(code.length())));
+		
+		
+		HttpServletRequest  request=ServletActionContext.getRequest();  
+		
+		
+
+		ProblemService problemservice = new ProblemServiceImpl();
+		problemservice.saveState(submitstate);
+
 		*/
 	}
 	
