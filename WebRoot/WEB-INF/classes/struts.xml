@@ -32,7 +32,7 @@
         <action name="problem_*" class="ProblemAction" method="{1}">  
       	    <result name="success">/status.jsp</result>  
             <result name="fail">/status.jsp</result>
-            <result name="problem">/test.jsp</result>  
+            <result name="problem">/problem.jsp</result>  
         </action>  
     </package>  
   

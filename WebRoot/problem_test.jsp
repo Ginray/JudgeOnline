@@ -1,6 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page language="java" import="com.zjgsu.service.*"%>
-<%@ page language="java" import="model.*"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -39,13 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<jsp:include page = "menu.jsp"></jsp:include>
 		</div>
 		<div class="col-md-12 column ">
-		
-		<%
-			String problemId =request.getParameter("problemId");	
-			ProblemService problemservice = new ProblemServiceImpl ();
-			Problem problem = problemservice.getProblemById(problemId);
-		%>
-			<h1 class="text-center text-primary"><%=problem.getTitle() %></h1>
+			<h1 class="text-center text-primary">A+B problem</h1>
 			<!-- 
 			 关于文本字体颜色：text-muted（灰色 色值为#777），text-primary（蓝色 #428bca），
 			 text-success（绿色 #5cb85c）,text-info（浅蓝色 #5bc0de），
@@ -55,44 +47,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 bg-waring（橙色 #f0ad4e），bg-success（绿色 #5cb85c），bg-danger（红 #d9534f）
 			 -->
 			 <h5 class="text-center text-info">
-			Time Limit: <%=problem.getTimeLimit()%>ms&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			Memory Limit: <%=problem.getMemoryLimit()%>KB <br>
+			Time Limit: 1000ms&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			Memory Limit: 32768KB <br>
 			64-bit integer IO format: %lld &nbsp&nbsp&nbsp&nbsp&nbsp&nbspJava class name: Main 
 			</h5>
 			<h3 class="text-info">Problem</h3>  	
 			<div class="h jumbotron">
 			<h4 class="text-left" >
-				<%=problem.getDescription()%>
+				Calculate a+b.
 			</h4>
 			</div>
 			<h3 class="text-info">Input</h3>
 			<div class="h jumbotron">
 			<h4 class="text-left" >
-				<%=problem.getInput()%>
+				Two integer a and b per line.
 			</h4>
 			</div>
 		 	<h3 class="text-info">Output</h3>
 			<div class="h jumbotron">
 			<h4 class="text-left" >
-				<%=problem.getOutput()%>
+				Output a+b for each line.
 			</h4>
 			</div>
 			<h3 class="text-info">Sample Input </h3>
 			<div class="h jumbotron">
 			<h4 class="text-left" >
-				<%=problem.getSampleInput()%>
+				1 2<br>
+				-5 6
 			</h4>
 			</div>
 			<h3 class="text-info">Sample Output </h3>
 			<div class="h jumbotron">
 			<h4 class="text-left" >
-				<%=problem.getSampleOutput()%>
+				3<br>
+				1
 			</h4>
 			</div>
 			<h3 class="text-info">Hint </h3>
 			<div class="h jumbotron">
 			<h4 class="text-left" >
-				<%=problem.getHint()%>
+				0.0
 			</h4>
 			</div>
 			

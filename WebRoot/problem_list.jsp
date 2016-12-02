@@ -121,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
     <tr>
       <td>1001</td>
-      <td><a href ="problem.jsp">A + B Problem</a></td>
+      <td><a href ="problem_test.jsp">A + B Problem</a></td>
       <td>HDU</td>
       <td>192636</td>
       <td>616339</td>
