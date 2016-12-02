@@ -101,7 +101,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<tr><td>测试</td><td>17</td><td>test</td><td>list_TEST</td></tr> 
   		<tr><td>测试</td><td>18</td><td>test</td><td>list_TEST</td></tr> 
   		<tr><td>测试</td><td>19</td><td>test</td><td>list_TEST</td></tr> 
-        <tr><td>测试</td><td>20</td><td>test</td><td>list_TEST</td></tr>        
+        <tr><td>测试</td><td>20</td><td>test</td><td>list_TEST</td></tr>   
+        <tr><td>测试</td><td>21</td><td>test</td><td>list_TEST</td></tr>        
     </table>
 
     <table width="60%" align="right">
@@ -135,14 +136,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        }   
     var currentPage = pno;//当前页数
     var startRow = (currentPage - 1) * pageSize+1;//开始显示的行  31 
-       var endRow = currentPage * pageSize;//结束显示的行   40
-       endRow = (endRow > num)? num : endRow;    
-       console.log(endRow);
+    var endRow = currentPage * pageSize;//结束显示的行   40
+    endRow = (endRow > num)? num : endRow;    
+    console.log(endRow);
        //遍历显示数据实现分页
     for(var i=1;i<(num+1);i++){    
         var irow = itable.rows[i-1];
         if(i>=startRow && i<=endRow){
-            irow.style.display = "block";    
+            irow.style.display = "";    
         }else{
             irow.style.display = "none";
         }
