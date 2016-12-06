@@ -24,7 +24,7 @@ public class test_jython {
 
 	public static void main(String args[]) {
 		rt = Runtime.getRuntime();
-		String ss = "python C:\\Users\\ciabok\\Desktop\\test.py";
+		String ss = "python C:\\Users\\ciabok\\Desktop\\submit_code.py";
 		try {
 			pc = rt.exec(ss);
 		} catch (IOException e) {
@@ -38,7 +38,8 @@ public class test_jython {
 	public static void writeIt() {
 		OutputStream fos = pc.getOutputStream();
 		PrintStream ps = new PrintStream(fos);
-		ps.print("another\n");
+		ps.print("ginxidx\n");
+		ps.print("123456\n");
 		ps.flush(); // 不加这个 后面的read就读不下去了
 		readIt();
 	}
