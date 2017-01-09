@@ -93,6 +93,19 @@ public class ProblemServiceImpl implements  ProblemService{
 		Query query = s.createSQLQuery(sql).addEntity(Problem.class);
 		List<Problem> li = query.list();
 		if(li.size()>0){
+			
+			/*这段是为了给题目描述添加缩进，然而效果并不是很好，而且看了很多OJ都是没有采用缩进，因此我也注释掉了。
+			StringBuffer StringFlag=new StringBuffer(li.get(0).getDescription());
+			StringFlag.insert(0,"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
+			li.get(0).setDescription(StringFlag.toString());
+			*/
+			
+			li.get(0).setSampleInput(li.get(0).getSampleInput().replace("\n", "<br />"));
+			li.get(0).setSampleOutput(li.get(0).getSampleOutput().replace("\n", "<br />"));
+			li.get(0).setInput(li.get(0).getInput().replace("\n", "<br />"));
+			li.get(0).setOutput(li.get(0).getOutput().replace("\n", "<br />"));
+			li.get(0).setDescription(li.get(0).getDescription().replace("\n", "<br />"));
+			li.get(0).setHint(li.get(0).getHint().replace("\n", "<br />"));
 			return li.get(0);
 		}else{
 			System.out.println("ProblemServiceImpl getProblemById 出错");
