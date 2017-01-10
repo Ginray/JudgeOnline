@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="list-group-item">Username :&nbsp&nbsp&nbsp<%=username %></li>
 				<li class="list-group-item">Nickname :&nbsp&nbsp&nbsp<%=nickname %> </li>
 				<li class="list-group-item">Email&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp :&nbsp&nbsp&nbsp<%=email %></li>
-				
+								
 				</ul>
 
 			</div>

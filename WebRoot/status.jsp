@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
   </head>
 
-<body>
+<body  onLoad="goPage(1,20);">
 	<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
@@ -42,46 +42,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<input type="text" class="form-control input"><span class="input-group-addon btn btn-primary">Search</span>
 		</div>
 	</div>
-	<div class="col-md-5 column">
-		<ul class="pagination ">
-			<li>
-				 <a href="#">Prev</a>
-			</li>
-			<li>
-				 <a href="#">1</a>
-			</li>
-			<li>
-				 <a href="#">2</a>
-			</li>
-			<li>
-				 <a href="#">3</a>
-			</li>
-			<li>
-				 <a href="#">4</a>
-			</li>
-			<li>
-				 <a href="#">5</a>
-			</li>
-			<li>
-				 <a href="#">6</a>
-			</li>
-			<li>
-				 <a href="#">7</a>
-			</li>
-			<li>
-				 <a href="#">8</a>
-			</li>
-			<li>
-				 <a href="#">Next</a>
-			</li>
-		</ul>
+		<div class="col-md-5 column">
+	 <ul id="sbar"  class="pagination ">
+		
+    </ul>
 	</div>
 
 	</div>
 	
 	
 	
-<table class="table table-striped">
+<table  id="idData"  class="table table-striped">
   <thead>
     <tr>
       <th>RunID</th>
@@ -148,4 +119,90 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
  </body>
   
+  
+  
+   <script>
+	function goPage(pno,psize){ 
+		  
+    var itable = document.getElementById("idData");
+    var num = itable.rows.length;//表格所有行数(所有记录数)
+    console.log(num);
+    var totalPage = 0;//总页数
+    var pageSize = psize;//每页显示行数
+    //总共分几页 
+    if((num-1)/pageSize > parseInt((num-1)/pageSize)){   
+          totalPage=parseInt((num-1)/pageSize)+1;   
+    }else{   
+          totalPage=parseInt((num-1)/pageSize);   
+    }   
+    var currentPage = pno;//当前页数
+	var startRow="";
+    var endRow="";
+    if(currentPage==1){
+    	startRow=  (currentPage - 1) * pageSize+1;//开始显示的行  
+    }
+    else{
+		startRow = (currentPage - 1) * pageSize+2;//开始显示的行  
+    }
+	endRow = currentPage * pageSize+1;//结束显示的行  
+	endRow = (endRow > num)? num : endRow;    
+	console.log(endRow);
+	
+    //遍历显示数据实现分页
+    //itable.rows该集合包括 <thead>、<tfoot> 和 <tbody> 中定义的所有行。
+    for(var i=2;i<=num;i++){    
+        var irow = itable.rows[i-1];
+        if(i>=startRow && i<=endRow){
+            irow.style.display = "";    
+        }else{
+            irow.style.display = "none";
+        }
+    }
+       
+  
+    var tempStr = "";
+
+    //"共"+num+"条记录 分"+totalPage+"页 当前第"+currentPage+"页";
+    if(currentPage>1){
+        tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(1)+","+psize+")\">First</a>"+"</li>";
+        tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(currentPage-1)+","+psize+")\">Prev</a>"+"</li>";
+    }else{
+        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"First"+"</a>"+"</li>";
+        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"Prev"+"</a>"+"</li>";    
+    }
+    
+    var fpage=1;
+    while(currentPage-fpage>3){
+    	fpage+=1;
+    }
+   
+    for(var i=fpage;i<currentPage;i++){
+    	 tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(i)+","+psize+")\">"+(i)+"</a>"+"</li>";
+    }
+    
+    tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+(currentPage)+"</a>"+"</li>";    
+
+    fpage=currentPage;
+    
+    while(fpage<totalPage&&(fpage-currentPage<=3)){
+    	fpage+=1;
+    	tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(fpage)+","+psize+")\">"+(fpage)+"</a>"+"</li>";
+    }
+    
+    
+    if(currentPage<totalPage){
+        tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(currentPage+1)+","+psize+")\">Next</a>"+"</li>";
+        tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(totalPage)+","+psize+")\">Last</a>"+"</li>";
+        
+    }else{
+        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"Last"+"</a>"+"</li>";
+        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"Next"+"</a>"+"</li>";    
+    }
+
+    document.getElementById("sbar").innerHTML = tempStr;
+    
+}    
+
+
+</script>
 </html>

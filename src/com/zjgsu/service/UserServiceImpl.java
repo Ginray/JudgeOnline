@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Problem;
 import model.UserInfo;
 
 import org.apache.struts2.ServletActionContext;
@@ -16,6 +17,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.zjgsu.utils.HibernateSessionFactory;
 
 @Service
 @Transactional
@@ -144,6 +147,20 @@ public class UserServiceImpl implements UserService {
 			
 		}catch (Exception e){
 			System.out.println("UserServiceImpl modify时发生错误"+e);
+		}
+	}
+	
+	@Override
+	public List<UserInfo> getUser() {
+		String sql="select * from user_info order by accept desc";
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(UserInfo.class);
+		List<UserInfo> li = query.list();
+		if(li.size()>0){
+			return li;
+		}else{
+			System.out.println("UserServiceImpl getUser时出错");
+			return null;
 		}
 	}
 }

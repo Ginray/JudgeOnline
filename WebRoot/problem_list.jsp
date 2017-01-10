@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
   </head>
 
-<body onLoad="goPage(1,10);">
+<body onLoad="goPage(1,20);">
 	<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">

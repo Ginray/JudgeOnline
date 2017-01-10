@@ -1,5 +1,7 @@
 package com.zjgsu.service;
 
+import java.util.List;
+
 import model.UserInfo;
 
 public interface UserService {
@@ -7,4 +9,5 @@ public interface UserService {
 	public String register(UserInfo userinfo);
 	public void logout(UserInfo userinfo);
 	public void modify(UserInfo userinfo);
+	public List<UserInfo> getUser();
 }
