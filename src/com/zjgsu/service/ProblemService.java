@@ -12,4 +12,5 @@ public interface ProblemService {
 	public void saveState(Submitstate submitstate);
 	public String findUsername(int cid);
 	public Problem getProblemById(String id);
+	public List<Problem> searchProblem(String keyword);
 }

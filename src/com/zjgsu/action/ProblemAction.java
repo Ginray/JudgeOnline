@@ -47,5 +47,6 @@ public class ProblemAction extends ActionSupport{
 		problemManager.setProblemId(Integer.parseInt(problemId));
 		return "problem";
 	}
+
 	
 }

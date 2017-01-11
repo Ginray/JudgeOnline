@@ -33,23 +33,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<jsp:include page = "menu.jsp"></jsp:include>
 		</div>
 	</div>
-	<form id ="form1" action="" method="post">
+	
 	<div class="col-md-12 column">
 	<div class="row clearfix">
 	<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
 		<div class="input-group">
-		
-		
-		
-    	<input name="search_keyword" id="search_keyword" type="text" class="form-control input">
-
-		<a href="#" onClick= "clickScript()" class="input-group-addon btn btn-info btn">
+    	<input type="text" class="form-control input">
+		<a href="#" class="input-group-addon btn btn-info btn">
          	 <span class="glyphicon glyphicon-search"></span> Search
        	</a>
-       
-       	
-       	
 		</div>
 	</div>
 	<div class="col-md-5 column">
@@ -59,9 +52,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 	</div>
-		
-	</div>
-	</form>
+	
+	
 <table id="idData"  class="table table-striped"  >  
      <thead>
 	    <tr>
@@ -78,10 +70,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
    <%
 		try {
+			String keyword =request.getParameter("keyword");	
 			ProblemService problemservice = new ProblemServiceImpl();
-			List<Problem> problemList = problemservice.showProblem();
+			List<Problem> problemList = problemservice.searchProblem(keyword);
 			for (int i = 0; i < problemList.size(); i++) {
 				Problem p = problemList.get(i);
+			
 	%>
   			<tr>
 		    <td><%=p.getProblemId() %></td>
@@ -97,49 +91,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
   
     %>
-  
-  
-    <tr>
-      <td>1001</td>
-      <td><a href ="problem_test.jsp">A + B Problem</a></td>
-      <td>HDU</td>
-      <td>192636</td>
-      <td>616339</td>
-    </tr>
-	<tr><td>1002</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1003</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1004</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1005</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1006</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1007</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1008</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1009</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1010</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1011</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1012</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1013</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1014</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1015</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1016</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1017</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1018</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1019</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1020</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1021</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1022</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1023</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1024</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1025</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1026</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1027</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1028</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1029</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1030</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1031</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1032</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1033</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1034</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
-    <tr><td>1035</td><td>A + B Problem IV</td><td>HDU</td><td>63683</td><td>328034</td></tr>
    
     </tbody>
     
@@ -149,6 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 	
+	</div>
 
 	
 	
@@ -159,15 +111,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
  </body>
   
-
   
   <script>
-	function clickScript(){
-		  var s =  "problem_showProblem.action?problemId="+document.getElementById("search_keyword").value;
-	      document.getElementById("form1").action= s;
-	      document.getElementById("form1").submit();
-
-	}
 	function goPage(pno,psize){ 
 		  
     var itable = document.getElementById("idData");
@@ -249,8 +194,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 }    
 
-	
-	
-</script>
 
+</script>
+  
+  
 </html>

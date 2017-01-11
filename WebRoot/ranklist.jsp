@@ -40,7 +40,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
 		<div class="input-group">
-    	<input type="text" class="form-control input"><span class="input-group-addon btn btn-primary">Search</span>
+    	<input type="text" class="form-control input">
+		<a href="#" class="input-group-addon btn btn-info btn">
+         	 <span class="glyphicon glyphicon-search"></span> Search
+       	</a>
 		</div>
 	</div>
 	<div class="col-md-5 column">
@@ -111,7 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  </body>
   
   
-   <script>
+  <script>
 	function goPage(pno,psize){ 
 		  
     var itable = document.getElementById("idData");
@@ -157,8 +160,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(1)+","+psize+")\">First</a>"+"</li>";
         tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(currentPage-1)+","+psize+")\">Prev</a>"+"</li>";
     }else{
-        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"First"+"</a>"+"</li>";
-        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"Prev"+"</a>"+"</li>";    
+        tempStr += "<li>"+"<a class=\"btn btn-default active \" disabled=\"disabled\">"+"First"+"</a>"+"</li>";
+        tempStr += "<li>"+"<a class=\"btn btn-default active\" disabled=\"disabled\">"+"Prev"+"</a>"+"</li>";    
     }
     
     var fpage=1;
@@ -170,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	 tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(i)+","+psize+")\">"+(i)+"</a>"+"</li>";
     }
     
-    tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+(currentPage)+"</a>"+"</li>";    
+    tempStr += "<li>"+"<a class=\"btn btn-info active\" disabled=\"disabled\">"+(currentPage)+"</a>"+"</li>";    
 
     fpage=currentPage;
     
@@ -185,13 +188,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(totalPage)+","+psize+")\">Last</a>"+"</li>";
         
     }else{
-        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"Last"+"</a>"+"</li>";
-        tempStr += "<li>"+"<a class=\"btn btn-default\" disabled=\"disabled\">"+"Next"+"</a>"+"</li>";    
+        tempStr += "<li>"+"<a class=\"btn btn-default active\" disabled=\"disabled\">"+"Last"+"</a>"+"</li>";
+        tempStr += "<li>"+"<a class=\"btn btn-default active\" disabled=\"disabled\">"+"Next"+"</a>"+"</li>";    
     }
 
     document.getElementById("sbar").innerHTML = tempStr;
     
 }    
+
 
 
 </script>
