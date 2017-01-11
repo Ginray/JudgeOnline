@@ -34,13 +34,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	
+	<form id ="form1" action="" method="post">
 	<div class="col-md-12 column">
 	<div class="row clearfix">
 	<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
 		<div class="input-group">
-    	<input type="text" class="form-control input">
-		<a href="#" class="input-group-addon btn btn-info btn">
+    	<input name="search_keyword" id="search_keyword" type="text" class="form-control input">
+
+		<a  onClick= "clickScript()" class="input-group-addon btn btn-info btn">
          	 <span class="glyphicon glyphicon-search"></span> Search
        	</a>
 		</div>
@@ -53,7 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	</div>
 	
-	
+	</div>
+	</form>
 <table id="idData"  class="table table-striped"  >  
      <thead>
 	    <tr>
@@ -73,6 +76,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			String keyword =request.getParameter("keyword");	
 			ProblemService problemservice = new ProblemServiceImpl();
 			List<Problem> problemList = problemservice.searchProblem(keyword);
+			if(problemList==null){
+				
+	%>
+			<tr>
+		    <td></td>
+		    <td> Can't find the problem!</td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    </tr>
+		  
+		    
+	<%
+			}
+			else{
 			for (int i = 0; i < problemList.size(); i++) {
 				Problem p = problemList.get(i);
 			
@@ -85,6 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <td><%=p.getSubmit() %></td>
 		    </tr>
     <%
+			}
 			}
 		}catch (Exception e) {
 			System.out.println(e);
@@ -106,13 +125,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 	
-	
- </div>
+
 
  </body>
   
   
   <script>
+  
+	function clickScript(){
+		  var s =  "problem_searchProblem.action?keyword="+document.getElementById("search_keyword").value;
+	      document.getElementById("form1").action= s;
+	      document.getElementById("form1").submit();
+
+	}
 	function goPage(pno,psize){ 
 		  
     var itable = document.getElementById("idData");

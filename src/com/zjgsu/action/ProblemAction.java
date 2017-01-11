@@ -47,6 +47,15 @@ public class ProblemAction extends ActionSupport{
 		problemManager.setProblemId(Integer.parseInt(problemId));
 		return "problem";
 	}
-
+	
+	public String searchProblem(){
+		/*
+		HttpServletRequest  request=ServletActionContext.getRequest();  
+		String keyword = request.getParameter("keyword");
+		System.out.println("---keyword "+keyword);
+		problemservice.searchProblem(keyword);
+		*/
+		return "search_problem";
+	}
 	
 }

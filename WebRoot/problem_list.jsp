@@ -38,18 +38,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row clearfix">
 	<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
-		<div class="input-group">
-		
-		
-		
+		<div class="input-group">		
     	<input name="search_keyword" id="search_keyword" type="text" class="form-control input">
 
-		<a href="#" onClick= "clickScript()" class="input-group-addon btn btn-info btn">
+		<a  onClick= "clickScript()" class="input-group-addon btn btn-info btn">
          	 <span class="glyphicon glyphicon-search"></span> Search
        	</a>
-       
-       	
-       	
+      
 		</div>
 	</div>
 	<div class="col-md-5 column">
@@ -163,7 +158,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <script>
 	function clickScript(){
-		  var s =  "problem_showProblem.action?problemId="+document.getElementById("search_keyword").value;
+		  var s =  "problem_searchProblem.action?keyword="+document.getElementById("search_keyword").value;
 	      document.getElementById("form1").action= s;
 	      document.getElementById("form1").submit();
 

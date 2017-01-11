@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 	</div>
-	
+	</div>
 	
 	
 <table  id="idData"   class="table table-striped">
@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tbody>
 </table>
 
-	</div>
+
 
 	
 	

@@ -115,14 +115,14 @@ public class ProblemServiceImpl implements  ProblemService{
 	
 	@Override
 	public List<Problem> searchProblem(String keyword) {
-		String sql="select * from problem where title like"+"'%" + keyword+"%' ";
+		String sql="select * from problem where problem_id like"+"'%" + keyword+"%' "+"or title like"+"'%" + keyword+"%' "+"or source like"+"'%" + keyword+"%' ";
 		Session s=HibernateSessionFactory.getSession();
 		Query query = s.createSQLQuery(sql).addEntity(Problem.class);
 		List<Problem> li = query.list();
 		if(li.size()>0){
 			return li;
 		}else{
-			System.out.println("ProblemServiceImpl searchProblem出错");
+			System.out.println("ProblemServiceImpl searchProblem 未找到对应题目");
 			return null;
 		}
 	}
