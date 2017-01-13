@@ -164,5 +164,18 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
+	@Override
+	public List<UserInfo> searchRanklist(String keyword) {
+		String sql="select * from user_info where username like"+"'%" + keyword+"%' " +"or nickname like"+"'%" + keyword+"%' " ;
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(UserInfo.class);
+		List<UserInfo> li = query.list();
+		if(li.size()>0){
+			return li;
+		}else{
+			System.out.println("ProblemServiceImpl searchRanklist未找到对应user");
+			return null;
+		}
+	}
 
 }

@@ -1,6 +1,7 @@
+<%@page import="model.UserInfo"%>
+<%@page import="com.zjgsu.service.UserServiceImpl"%>
+<%@page import="com.zjgsu.service.UserService"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page language="java" import="com.zjgsu.service.*"%>
-<%@ page language="java" import="model.*"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
   </head>
 
-<body  onLoad="goPage(1,20);">
+<body onLoad="goPage(1,20);">
 	<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
@@ -36,16 +37,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<form id ="form1" action="" method="post">
 	<div class="col-md-12 column">
 	<div class="row clearfix">
-		<div class="col-md-7 column">
+	<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
 		<div class="input-group">		
-    	<input name="search_keyword" id="search_keyword" type="text"  placeholder="please input the problem id " class="form-control input">
+    	<input name="search_keyword" id="search_keyword" type="text" placeholder="please input the username or the nickname" class="form-control input">
 
 		<a  onClick= "clickScript()" class="input-group-addon btn btn-info btn">
          	 <span class="glyphicon glyphicon-search"></span> Search
        	</a>
-      
-		</div>
+      	</div>
 	</div>
 	<div class="col-md-5 column">
 	 <ul id="sbar"  class="pagination ">
@@ -55,59 +55,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	</div>
 	</div>
-	
 	</form>
-<table  id="idData"  class="table table-striped">
+	
+<table  id="idData"   class="table table-striped">
   <thead>
     <tr>
-      <th>RunID</th>
-      <th>Problem ID</th>
+      <th>Rank</th>
       <th>Username</th>
-      <th>Result</th>
-      <th>Language</th>
-      <th>Time</th>
-      <th>Memory</th>
-      <th>Code Length</th>
-      <th>Submit Time</th>
+      <th>Nickname</th>
+      <th>AC</th>
+      <th>Submit</th>
+      <th>AC Ratio</th>
     </tr>
   </thead>
-  <tbody>
+ <tbody>
     
     <%
 		try {
-			ProblemService problemservice = new ProblemServiceImpl();
-			List<Submitstate> sumitStates = problemservice.showState();
-			for (int i = 0; i < sumitStates.size(); i++) {
-				Submitstate s = sumitStates.get(i);
-				String nickname = problemservice.findUsername(s.getUserId());
+			String keyword = request.getParameter("keyword");
+			UserService userService = new UserServiceImpl();
+			List<UserInfo> userInfo = userService.searchRanklist(keyword);
+			
+			if(userInfo==null){
 	%>
+			    <tr>
+			      <td></td>
+			      <td>Can't find the user!</td>
+			      <td></td>
+			      <td></td>
+			      <td></td>
+			      <td></td>
+			    </tr>
+	<% 
+			}else{
+			for (int i = 0; i < userInfo.size(); i++) {
+				UserInfo u = userInfo.get(i);
+				double ratio=0;
+				if(u.getSubmit()!=0)
+					ratio =100*u.getAccept()/u.getSubmit();
+				
+	%>
+	
     <tr>
-      <td><%=s.getId() %></td>
-      <td><%=s.getProblemId() %></td>
-      <td><%=nickname%></td>
-      <%
-      		String color;
-      		String state=s.getState();
-      		if("rightAnswer".equals(state))
-      			color="text-success";
-      		else if("compileError".equals(state))
-      			color="text-primary";
-      		else
-      			color="text-danger";
-      		
-      		int memory =Integer.valueOf(s.getMemory())/1024;
-      %>
-      <td class =<%=color %>><%=s.getState()%></td>
-      <td><%=s.getCodeType() %></td>
-      <td><%=s.getRuntime() %> ms</td>
-      <td><%=memory%> byte</td>
-      <td><%=s.getCodeLength() %></td>
-      <td><%=s.getSubmitDate() %></td>
+      <td><%=i+1 %></td>
+      <td><%=u.getUsername() %></td>
+      <td><%=u.getNickname()%></td>
+      <td><%=u.getAccept()%></td>
+      <td><%=u.getSubmit() %></td>
+      <td><%=ratio %>%</td>
     </tr>
     
     
     
     <%
+			}
 		}
 		} catch (Exception e) {
 			System.out.println(e);
@@ -119,16 +120,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </table>
 
 
+
+	
+	
+	
+	
 	
 	</div>
 
  </body>
   
   
-  
-   <script>
+  <script>
 	function clickScript(){
-		  var s =  "problem_searchStatus.action?keyword="+document.getElementById("search_keyword").value;
+		  var s =  "problem_searchRanklist.action?keyword="+document.getElementById("search_keyword").value;
 	      document.getElementById("form1").action= s;
 	      document.getElementById("form1").submit();
 
@@ -179,7 +184,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(currentPage-1)+","+psize+")\">Prev</a>"+"</li>";
     }else{
         tempStr += "<li>"+"<a class=\"btn btn-default active \" disabled=\"disabled\">"+"First"+"</a>"+"</li>";
-        tempStr += "<li>"+"<a class=\"btn btn-default active\"  disabled=\"disabled\">"+"Prev"+"</a>"+"</li>";    
+        tempStr += "<li>"+"<a class=\"btn btn-default active\" disabled=\"disabled\">"+"Prev"+"</a>"+"</li>";    
     }
     
     var fpage=1;
@@ -213,6 +218,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     document.getElementById("sbar").innerHTML = tempStr;
     
 }    
+
 
 
 </script>

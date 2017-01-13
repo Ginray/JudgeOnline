@@ -11,5 +11,5 @@ public interface UserService {
 	public void logout(UserInfo userinfo);
 	public void modify(UserInfo userinfo);
 	public List<UserInfo> getUser();
-
+	public List<UserInfo>searchRanklist(String keyword);
 }

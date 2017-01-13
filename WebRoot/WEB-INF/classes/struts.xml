@@ -34,6 +34,9 @@
             <result name="fail">/status.jsp</result>
             <result name="problem">/problem.jsp</result>
             <result name="search_problem">/search_problem.jsp</result> 
+            <result name="search_status">/search_status.jsp</result> 
+            <result name="search_ranklist">/search_ranklist.jsp</result> 
+            
         </action>  
     </package>  
   

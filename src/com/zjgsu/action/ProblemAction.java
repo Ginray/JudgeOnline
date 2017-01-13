@@ -58,4 +58,10 @@ public class ProblemAction extends ActionSupport{
 		return "search_problem";
 	}
 	
+	public String searchStatus(){
+		return "search_status";
+	}
+	public String searchRanklist(){
+		return "search_ranklist";
+	}
 }

@@ -126,4 +126,21 @@ public class ProblemServiceImpl implements  ProblemService{
 			return null;
 		}
 	}
+	
+	@Override
+	public List<Submitstate> searchState(String keyword) {
+		String sql="select * from submitstate where problem_id like"+"'%" + keyword+"%' "+"order by id desc ";
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(Submitstate.class);
+		List<Submitstate> li = query.list();
+		if(li.size()>0){
+			return li;
+		}else{
+			System.out.println("ProblemServiceImpl searchState未找到对应state");
+			return null;
+		}
+	}
+	
+	
+
 }

@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import model.Problem;
 import model.Submitstate;
+import model.UserInfo;
 
 public interface ProblemService {
 	public List<Submitstate> showState();
@@ -13,4 +14,6 @@ public interface ProblemService {
 	public String findUsername(int cid);
 	public Problem getProblemById(String id);
 	public List<Problem> searchProblem(String keyword);
+	public List<Submitstate>searchState(String keyword);
+	
 }

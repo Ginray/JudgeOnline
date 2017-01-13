@@ -35,16 +35,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	
+	<form id ="form1" action="" method="post">
 	<div class="col-md-12 column">
 	<div class="row clearfix">
 	<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
-		<div class="input-group">
-    	<input type="text" class="form-control input">
-		<a href="#" class="input-group-addon btn btn-info btn">
+		<div class="input-group">		
+    	<input name="search_keyword" id="search_keyword" type="text" placeholder="please input the username or the nickname" class="form-control input">
+
+		<a  onClick= "clickScript()" class="input-group-addon btn btn-info btn">
          	 <span class="glyphicon glyphicon-search"></span> Search
        	</a>
-		</div>
+      	</div>
 	</div>
 	<div class="col-md-5 column">
 	 <ul id="sbar"  class="pagination ">
@@ -55,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	</div>
 	
-	
+	</form>
 <table  id="idData"   class="table table-striped">
   <thead>
     <tr>
@@ -115,6 +117,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
   <script>
+	function clickScript(){
+		  var s =  "problem_searchRanklist.action?keyword="+document.getElementById("search_keyword").value;
+	      document.getElementById("form1").action= s;
+	      document.getElementById("form1").submit();
+
+	}
 	function goPage(pno,psize){ 
 		  
     var itable = document.getElementById("idData");

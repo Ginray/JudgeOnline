@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
 		<div class="input-group">
-    	<input name="search_keyword" id="search_keyword" type="text" class="form-control input">
+    	<input name="search_keyword" id="search_keyword" type="text" placeholder="please input the problem id | title keyword |source keyword "  class="form-control input">
 
 		<a  onClick= "clickScript()" class="input-group-addon btn btn-info btn">
          	 <span class="glyphicon glyphicon-search"></span> Search
@@ -177,7 +177,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        
   
     var tempStr = "";
-
+ 
     //"共"+num+"条记录 分"+totalPage+"页 当前第"+currentPage+"页";
     if(currentPage>1){
         tempStr += "<li>"+"<a href=\"javascript:void(0);\" onClick=\"goPage("+(1)+","+psize+")\">First</a>"+"</li>";

@@ -39,13 +39,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="col-md-7 column">
 		<br><!-- 需要一个换行才能对齐 -->
 		<div class="input-group">		
-    	<input name="search_keyword" id="search_keyword" type="text"  placeholder="please input the problem id " class="form-control input">
+    	<input name="search_keyword" id="search_keyword" type="text" placeholder="please input the problem id " class="form-control input">
 
 		<a  onClick= "clickScript()" class="input-group-addon btn btn-info btn">
          	 <span class="glyphicon glyphicon-search"></span> Search
        	</a>
-      
-		</div>
+      	</div>
 	</div>
 	<div class="col-md-5 column">
 	 <ul id="sbar"  class="pagination ">
@@ -55,8 +54,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	</div>
 	</div>
-	
 	</form>
+	
 <table  id="idData"  class="table table-striped">
   <thead>
     <tr>
@@ -75,8 +74,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <%
 		try {
+			String keyword =request.getParameter("keyword");
 			ProblemService problemservice = new ProblemServiceImpl();
-			List<Submitstate> sumitStates = problemservice.showState();
+			List<Submitstate> sumitStates = problemservice.searchState(keyword);
+			if(sumitStates==null){
+	%>
+				
+	 <tr>
+      <td></td>
+      <td>Can't find the state!</td>
+      <td></td>
+      <td ></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+				
+				
+	<% 
+			}
+			else{
 			for (int i = 0; i < sumitStates.size(); i++) {
 				Submitstate s = sumitStates.get(i);
 				String nickname = problemservice.findUsername(s.getUserId());
@@ -108,6 +127,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     <%
+			}
 		}
 		} catch (Exception e) {
 			System.out.println(e);
