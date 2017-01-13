@@ -3,6 +3,8 @@ package com.zjgsu.service;
 import java.util.List;
 import java.util.Vector;
 
+import javax.annotation.Resource;
+
 import model.Problem;
 import model.Submitstate;
 import model.UserInfo;
@@ -17,7 +19,7 @@ import com.zjgsu.utils.HibernateSessionFactory;
 @Service
 @Transactional
 public class ProblemServiceImpl implements  ProblemService{
-	
+
 	/*Spring和Hibernate整个后*/  
     private SessionFactory sessionFactory; //定义一个sessionFactory  
 	
@@ -48,11 +50,13 @@ public class ProblemServiceImpl implements  ProblemService{
 	}
 	
 	@Override
+    @Transactional
 	public void saveState(Submitstate submitstate){
         try{
     		Session s=HibernateSessionFactory.getSession();
+    		s.beginTransaction();
         	s.save(submitstate);
-        	
+        	s.getTransaction().commit(); 
         }catch(Exception e){
         	System.out.println("CategoryServiceImpl  saveState 时发生错误"+e);
         }

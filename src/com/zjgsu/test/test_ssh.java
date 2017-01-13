@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.zjgsu.oj.OutResult;
 import com.zjgsu.service.CategoryService;
 import com.zjgsu.service.CategoryServiceImpl;
 import com.zjgsu.service.ProblemService;
@@ -30,7 +31,7 @@ public class test_ssh {
     @Resource  
     private CategoryService categoryService;  
     
-  
+    
     //@Test //测试Spring IOC的开发环境  
     public void springIoc() {  
         System.out.println(date);  
@@ -74,6 +75,40 @@ public class test_ssh {
 		}
 		submitstate.setSubmitDate(date);
 	
+		ProblemService problemservice = new ProblemServiceImpl();
+		problemservice.saveState(submitstate);
+    }
+    
+    @Test
+    public void saveState(){
+		Submitstate submitstate = new Submitstate();
+		submitstate.setUserId(100);
+		submitstate.setProblemId(22222);
+		submitstate.setId(100);
+
+	
+		
+		
+		OutResult result = new OutResult();
+		result.setMemory(123);
+		result.setState("AC");
+		result.setTime(100000);
+		String code = "Submit Code";
+		System.out.println(result.targetId + " id");
+		
+		submitstate.setId(100);
+		submitstate.setState(result.getState());
+		submitstate.setCodeType("java");
+		submitstate.setMemory(String.valueOf(result.getMemory()));
+		submitstate.setRuntime(String.valueOf(result.getTime()));
+		submitstate.setSubmitDate(new Date());
+		submitstate.setCodeLength(Integer.parseInt(String.valueOf(code.length())));
+		
+		
+	
+		
+		
+
 		ProblemService problemservice = new ProblemServiceImpl();
 		problemservice.saveState(submitstate);
     }
