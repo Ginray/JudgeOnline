@@ -28,13 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							 <a href="#">Action</a>
-						</li>
-						<li>
-							 <a href="#">Another action</a>
-						</li>
-						<li>
-							 <a href="#">Something else here</a>
+							 <a href="counter.jsp">Show online acmer</a>
 						</li>
 						<li class="divider">
 						</li>
