@@ -30,8 +30,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<jsp:include page = "menu.jsp"></jsp:include>
+			<div class="jumbotron">
+
+				<p>
+					The number of online ACMer is：<%=SessionCounter.getActiveSessions() %>
+				</p>
+
+
+			</div>
 			
-			The number of online ACMer is：<%=SessionCounter.getActiveSessions() %>
 		</div>
 		
 	</div>

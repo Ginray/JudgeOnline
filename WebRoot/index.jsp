@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="css/bootstrap.css">  
   	<script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
-    
+    <script src="js/bootstrap-growl.js" ></script>  
     <link rel="Shortcut Icon" href="img/zjgsu.png" /> 
     
   </head>

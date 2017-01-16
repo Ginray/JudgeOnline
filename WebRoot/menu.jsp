@@ -1,5 +1,6 @@
 <%@page import="java.net.URLDecoder"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,11 +25,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li>
 					 <a href="ranklist.jsp">Ranklist</a>
 				</li>
+				<li>
+				
+					 <a href="counter.jsp">SOLO! <span class="label label-warning">Alpha</span></a>
+					
+				</li>
 				<li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							 <a href="counter.jsp">Show online acmer</a>
+							 <a href=#>action</a>
 						</li>
 						<li class="divider">
 						</li>
@@ -246,26 +252,82 @@ function check(){
 	   var password = document.getElementById("password").value;
 	   var repsword = document.getElementById("repsword").value;
 	   if(password === ''){
-	      alert('密码不能为空');
+		   $.bootstrapGrowl("Empty Password !", {  
+			   ele: 'body', // which element to append to  绑定到某个元素  
+			   type: 'danger', // (null, 'info', 'danger', 'success')  提示的类型  
+			   offset: {from: 'top', amount: 30}, // 'top', or 'bottom' 相对顶部或者底部的距离  
+			   align: 'center', // ('left', 'right', or 'center')    位置 左右居中  
+			   width: 400, // (integer, or 'auto') 宽度  
+			   delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!  自动消失时间设置  
+			   allow_dismiss: true, // If true then will display a cross to close the popup. 是否出现小叉叉点击就取消提示框  
+			   stackup_spacing: 10 // spacing between consecutively stacked growls. 相邻提示框的间距   
+			 });  
 	      return false;
 	   }
 	   if(password != repsword) {
-	      alert("两次密码不同，请重新输入");
+		   $.bootstrapGrowl("Password doesn't match !", {  
+			   ele: 'body',
+			   type: 'danger',
+			   offset: {from: 'top', amount: 30},   
+			   align: 'center',  
+			   width: 400, 
+			   delay: 2000, 
+			   allow_dismiss: true, 
+			   stackup_spacing: 10
+			 });  
 	      return false;
 	   }
+	   $.bootstrapGrowl("Success !", {  
+		   ele: 'body',   
+		   type: 'success', 
+		   offset: {from: 'top', amount: 30},
+		   align: 'center', 
+		   width: 400, 
+		   delay: 2000, 
+		   allow_dismiss: true, 
+		   stackup_spacing: 10 
+		 });   
 }
 
 function checkmo(){
 	   var password = document.getElementById("mopassword").value;
 	   var repsword = document.getElementById("morepsword").value;
 	   if(password === ''){
-	      alert('密码不能为空');
+		   $.bootstrapGrowl("Empty Password !", {  
+			   ele: 'body',  
+			   type: 'danger', 
+			   offset: {from: 'top', amount: 30},   
+			   align: 'center', 
+			   width: 400,
+			   delay: 2000,
+			   allow_dismiss: true, 
+			   stackup_spacing: 10  
+			 });  
 	      return false;
 	   }
 	   if(password != repsword) {
-	      alert("两次密码不同，请重新输入");
+		   $.bootstrapGrowl("Password doesn't match !", {  
+			   ele: 'body',
+			   type: 'danger',
+			   offset: {from: 'top', amount: 30},   
+			   align: 'center',  
+			   width: 400, 
+			   delay: 2000, 
+			   allow_dismiss: true, 
+			   stackup_spacing: 10
+			 });  
 	      return false;
 	   }
+	   $.bootstrapGrowl("Success !", {  
+		   ele: 'body',   
+		   type: 'success', 
+		   offset: {from: 'top', amount: 30},
+		   align: 'center', 
+		   width: 400, 
+		   delay: 2000, 
+		   allow_dismiss: true, 
+		   stackup_spacing: 10 
+		 });  
 }
 </script>
 
