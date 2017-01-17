@@ -26,8 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 <a href="ranklist.jsp">Ranklist</a>
 				</li>
 				<li>
-				
+					 <a href="counter.jsp">SOLO!</a>
+					 <!--  
 					 <a href="counter.jsp">SOLO! <span class="label label-warning">Alpha</span></a>
+					 -->
 					
 				</li>
 				<li class="dropdown">

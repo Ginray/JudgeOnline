@@ -36,7 +36,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					The number of online ACMer is：<%=SessionCounter.getActiveSessions() %>
 				</p>
 
-
+				<%
+				ServletContext app = request.getServletContext();
+				ArrayList<String> loginList = (ArrayList<String>)app.getAttribute("loginlist");
+				if(loginList != null){
+				  for(String nickname:loginList){
+				%>
+					<li>
+					<%=nickname %>
+					</li>
+				<%
+				  }
+				}
+				%>
 			</div>
 			
 		</div>

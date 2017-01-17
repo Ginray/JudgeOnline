@@ -1,8 +1,10 @@
 package com.zjgsu.service;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,6 +64,13 @@ public class UserServiceImpl implements UserService {
 	    		request.getSession().setAttribute("password", li.get(0).getPassword());
 	    		request.getSession().setAttribute("nickname", li.get(0).getNickname());
 	    		request.getSession().setAttribute("email", li.get(0).getEmail());
+	    		ServletContext app = request.getServletContext();
+				ArrayList<String> loginList = (ArrayList<String>)app.getAttribute("loginlist");
+				if(loginList == null){
+				  loginList = new ArrayList<String>();
+				  app.setAttribute("loginlist",loginList);
+				}
+				loginList.add(li.get(0).getNickname());
 	    		return "success";
     		}
     			
