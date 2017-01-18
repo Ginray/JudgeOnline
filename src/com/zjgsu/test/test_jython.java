@@ -21,10 +21,11 @@ import org.junit.Test;
 public class test_jython {
 	static Process pc;
 	static Runtime rt;
+	
 
 	public static void main(String args[]) {
 		rt = Runtime.getRuntime();
-		String ss = "python C:\\Users\\ciabok\\Desktop\\submit_code.py";
+		String ss = "python G:\\javaworkspace\\JudgeOnline\\python_script\\submit_code.py";
 		try {
 			pc = rt.exec(ss);
 		} catch (IOException e) {
@@ -64,7 +65,7 @@ public class test_jython {
 		try {
 			System.out.println("start");
 			Process pr = Runtime.getRuntime().exec(
-					"python C:\\Users\\ciabok\\Desktop\\submit_code.py");
+					"python G:\\javaworkspace\\JudgeOnline\\python_script\\submit_code.py");
 
 			OutputStream fos = pr.getOutputStream();
 			PrintStream ps = new PrintStream(fos);

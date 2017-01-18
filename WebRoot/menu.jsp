@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							 <a href=#>action</a>
+							 <a href=admin.jsp>admin</a>
 						</li>
 						<li class="divider">
 						</li>
