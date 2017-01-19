@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+  
+<struts>  
+    <package name="shop" extends="struts-default">  
+        <!-- category_update.actiocan： 访问update方法 -->  
+        <action name="test_*" class="TestAction" method="{1}">  
+            <result name="index">/problem_list.jsp</result>  
+        </action>  
+    </package>  
+    
+    <package name="user" extends="struts-default">  
+        <!-- category_update.actiocan： 访问update方法 -->  
+        <action name="user_*" class="UserAction" method="{1}">  
+      	    <result name="success">/index.jsp</result>  
+            <result name="fail">/index.jsp</result>  
+        </action>  
+    </package>  
+    
+   <package name="judge" extends="struts-default">  
+        <!-- category_update.actiocan： 访问update方法 -->  
+        <action name="judge_*" class="JudgeAction" method="{1}">  
+      	    <result name="success">/status.jsp</result>  
+            <result name="fail">/problem.jsp</result>  
+        </action>  
+    </package>  
+  
+    <package name="problem" extends="struts-default">  
+        <!-- category_update.actiocan： 访问update方法 -->  
+        <action name="problem_*" class="ProblemAction" method="{1}">  
+      	    <result name="success">/status.jsp</result>  
+            <result name="fail">/status.jsp</result>
+            <result name="problem">/problem.jsp</result>
+            <result name="search_problem">/search_problem.jsp</result> 
+            <result name="search_status">/search_status.jsp</result> 
+            <result name="search_ranklist">/search_ranklist.jsp</result> 
+            
+        </action>  
+    </package>  
+  
+</struts>  

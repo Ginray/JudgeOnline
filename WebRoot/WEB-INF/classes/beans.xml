@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+    
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    
+        <!--配置数据源dataSource  -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">  
+    <property name="driverClass" value="com.mysql.jdbc.Driver" />  
+    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/zjgsu_oj" />  
+    <property name="user" value="root" />  
+    <property name="password" value="" />  
+    </bean>  
+    
+    <!--  配置sessionFactory -->
+    <!-- org.springframework.orm.hibernate4.LocalSessionFactoryBean类在spring-orm-4.2.4.RELEASE.jar包的org.springframework.orm.hibernate4包中 -->  
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
+         <property name="dataSource" ref="dataSource" />  
+         
+         <!-- 加载hibernate配置文件 -->  
+         <property name="configLocation" value="classpath:hibernate.cfg.xml" /> 
+         
+    </bean>  
+    
+    <!-- 配置事务管理器:事务管理器，是用来管理sessionFactory的，这样所有的由sessionFactory产生的session将会有声明式的管理 -->
+    <!-- org.springframework.orm.hibernate4.HibernateTransactionManager类spring-orm-4.2.4.RELEASE.jar包的org.springframework.orm.hibernate4包中 -->  
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">  
+         <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>  
+    
+    
+    <!-- 配置advice（通知）:配置advice的目的是指定哪些方法需要什么类型的事务模式 -->
+    <!-- REQUIRED表示如果存在事务，则支持当前的事务，如果没有则创建一个新的事务，
+    这个事务模式应用在所有以save、update和delete开头的方法上，
+    也就是说对数据库的增删改的时候需要添加事务支持。SUPPORTS表示如果存在事务，
+    则支持当前的事务，如果没有就算了 -->
+    <tx:advice id="advice" transaction-manager="transactionManager">  
+        <tx:attributes>  
+            <tx:method name="save*" propagation="REQUIRED"/>  
+            <tx:method name="update*" propagation="REQUIRED"/>  
+            <tx:method name="delete*" propagation="REQUIRED"/>  
+            <tx:method name="*" propagation="SUPPORTS"/>  
+        </tx:attributes>  
+    </tx:advice>  
+
+
+	<!-- 那些类那些方法使用事务 -->
+	<aop:config>
+	  <!-- 只对业务逻辑层实施事务 -->
+	  
+		<aop:pointcut id="pointcut"
+			expression="execution(*com.zjgsu.service.*.*(..))" />
+		<!-- 加上这句就报错
+		<aop:advisor advice-ref="advice"  pointcut-ref="pointcut" />
+		-->
+	</aop:config>     
+    
+
+    <bean id="date" class= "java.util.Date" />
+    
+    <bean id="categoryService" class="com.zjgsu.service.CategoryServiceImpl">  
+        <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
+    </bean>  
+    
+    <bean id="userservice" class="com.zjgsu.service.UserServiceImpl">  
+        <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
+    </bean>  
+    
+    <bean id="judgeservice" class="com.zjgsu.service.JudgeServiceImpl">  
+        <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
+    </bean>  
+    
+    <bean id="problemservice" class="com.zjgsu.service.ProblemServiceImpl">  
+        <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
+    </bean>  
+    
+    <bean id="TestAction" class="com.zjgsu.action.TestAction" scope="prototype">  
+    <property name="categoryService" ref="categoryService" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
+	</bean>  
+	
+	<bean id="UserAction" class="com.zjgsu.action.UserAction" scope="prototype">  
+    <property name="userservice" ref="userservice" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
+	</bean>  
+
+	<bean id="JudgeAction" class="com.zjgsu.action.JudgeAction" scope="prototype">  
+    <property name="judgeservice" ref="judgeservice" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
+	</bean>  	
+	
+	<bean id="ProblemAction" class="com.zjgsu.action.ProblemAction" scope="prototype">  
+    <property name="problemservice" ref="problemservice" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
+	</bean>  	
+	
+</beans>
