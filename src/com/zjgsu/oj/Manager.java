@@ -1,5 +1,7 @@
 package com.zjgsu.oj;
 
+import com.zjgsu.manager.JugeManager;
+
 public  class Manager implements IManager {
 	public Target target;
 	public OutResult result;
@@ -40,6 +42,8 @@ public  class Manager implements IManager {
 			
 			//System.out.println("run resultsate="+result.getState());
 		}
+		JugeManager judgemanager = new JugeManager();
+		judgemanager.setJugeResult(result);
 	}
 	public void setCompilerName(String name){
 		compiler.name=name;
