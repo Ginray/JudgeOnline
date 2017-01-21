@@ -42,6 +42,7 @@ public class JugeManager {
 			
 			target.input="123";
 			target.output ="123";
+			target.code=code;
 			//这是后台数据
 			System.out.println("input= "+target.input);
 			System.out.println("output= "+target.output);
@@ -97,9 +98,9 @@ public class JugeManager {
 		*/
 		
 		Submitstate submitstate = new Submitstate();
-		submitstate.setUserId(100);
+		submitstate.setUserId(10);
 		submitstate.setProblemId(1);
-		submitstate.setId(100);
+		//submitstate.setId(100);
 
 	
 		
@@ -107,7 +108,7 @@ public class JugeManager {
 		if(result==null){
 			System.out.println("---result null  judgeManage");
 		}
-		//String code = system.getCode();
+		String code = result.code;
 		System.out.println(result.targetId + " id");
 		String[] pu = result.targetId.split("_");
 		SimpleDateFormat dayFormat = new SimpleDateFormat(
@@ -118,7 +119,7 @@ public class JugeManager {
 		submitstate.setMemory(String.valueOf(result.getMemory()));
 		submitstate.setRuntime(String.valueOf(result.getTime()));
 		submitstate.setSubmitDate(new Date());
-		//submitstate.setCodeLength(Integer.parseInt(String.valueOf(code.length())));
+		submitstate.setCodeLength(Integer.parseInt(String.valueOf(code.length())));
 		
 		
 		//HttpServletRequest  request=ServletActionContext.getRequest();  

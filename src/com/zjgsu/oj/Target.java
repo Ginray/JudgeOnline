@@ -10,6 +10,7 @@ public class Target {
 	public String objExtension;
 	public String output;
 	public String input;
+	public String code;
 	public long limitTime;
 	public long limitMemory;
 	public Target(){
@@ -20,17 +21,19 @@ public class Target {
 		objExtension="";
 		output="";
 		input="";
+		code="";
 		limitTime=10;
 		limitMemory=10;
 		targetId="";
 	}
-	public Target(String filePath,String fileName,String fileExtension,String objExtension,String input,String output){
+	public Target(String filePath,String fileName,String fileExtension,String objExtension,String input,String output,String code){
 		this.filePath=filePath;
 		this.fileExtension=fileExtension;
 		this.fileName=fileName;
 		this.objExtension=objExtension;
 		this.output=output;
 		this.input=input;
+		this.code=code;
 		limitTime=10;
 		limitMemory=10;
 	}

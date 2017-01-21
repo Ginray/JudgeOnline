@@ -6,6 +6,7 @@ public class OutResult {
 	public String outExecute;
 	public String erroCompile;
 	public String erroExecute;
+	public String code;
 	private long memory;
 	private long time;
 	private String state;
@@ -18,6 +19,7 @@ public class OutResult {
 		outExecute=null;
 		erroCompile=null;
 		erroExecute=null;
+		code=null;
 	}
 	public String getState() {
 		return state;

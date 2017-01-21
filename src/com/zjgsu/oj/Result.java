@@ -15,5 +15,7 @@ public class Result {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+	
 	
 }

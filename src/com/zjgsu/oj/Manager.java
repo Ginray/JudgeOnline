@@ -43,6 +43,7 @@ public  class Manager implements IManager {
 			//System.out.println("run resultsate="+result.getState());
 		}
 		JugeManager judgemanager = new JugeManager();
+		result.code=target.code;
 		judgemanager.setJugeResult(result);
 	}
 	public void setCompilerName(String name){
