@@ -1,6 +1,7 @@
 package com.zjgsu.action;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import model.SubmitProblem;
 
@@ -10,6 +11,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.zjgsu.service.JudgeService;
 
 public class JudgeAction extends ActionSupport{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JudgeService judgeservice;
 	private SubmitProblem submitproblem;
 	
@@ -31,6 +36,9 @@ public class JudgeAction extends ActionSupport{
 	}
 	
 	public String submitCode(){
+		HttpServletRequest  request=ServletActionContext.getRequest();  
+		HttpSession session = request.getSession();
+		String username = (String) session.getAttribute("username");
 		judgeservice.submitCode(submitproblem);
 		return "success";
 	}

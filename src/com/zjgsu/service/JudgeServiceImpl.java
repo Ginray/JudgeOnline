@@ -64,10 +64,10 @@ public class JudgeServiceImpl implements JudgeService{
 			
 			System.out.println("-----------JugeServlet");
 			codeText=codeText.trim();
-			String problemId=request.getParameter("problemId");
+			
 //				System.out.println("codetext"+codeText);
 //				System.out.println("juge1");
-			if (!"".equals(codeText)) {
+			if (codeText!=null) {
 				if (username==null||"".equals(username)) {
 					direct = "UserLogin.jsp";
 					msg = "尚未登录";
@@ -76,11 +76,11 @@ public class JudgeServiceImpl implements JudgeService{
 					System.out.println("begin add juge");
 					
 					String uId =request.getSession().getAttribute("userid").toString();
-					if(uId!=null){
+					String problemId =(String) request.getSession().getAttribute("problemId");
+					if(uId!=null&&problemId!=null){
 						jugeManager.addJuge(problemId,uId, codeText);
 					}else{
-						jugeManager.addJuge(problemId,"1", codeText);
-						System.out.println("userId 为空!");
+						System.out.println("userId 或problemId 为空!");
 					}
 					
 					direct="SubmitResult.jsp";

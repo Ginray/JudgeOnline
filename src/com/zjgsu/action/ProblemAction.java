@@ -42,6 +42,7 @@ public class ProblemAction extends ActionSupport{
 	public String showProblem(){
 		HttpServletRequest  request=ServletActionContext.getRequest();  
 		String problemId = request.getParameter("problemId");
+		request.getSession().setAttribute("problemId", problemId);
 		System.out.println("---problemID "+problemId);
 		ProblemManager problemManager = new ProblemManager();
 		problemManager.setProblemId(Integer.parseInt(problemId));

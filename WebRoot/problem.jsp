@@ -10,8 +10,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
-    <title>ZJGSU Judge Online</title>
+    <%
+   		String problemId =request.getParameter("problemId");
+    %>
+    <title>Problem-<%=problemId%></title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,8 +21,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 
     <link rel="stylesheet" href="css/bootstrap.css">  
+    
+    
   	<script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap-growl.js" ></script>  
     
     <link rel="Shortcut Icon" href="img/zjgsu.png" /> 
     <style type="text/css">
@@ -41,7 +46,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="col-md-12 column ">
 		
 		<%
-			String problemId =request.getParameter("problemId");	
 			ProblemService problemservice = new ProblemServiceImpl ();
 			Problem problem = problemservice.getProblemById(problemId);
 		%>
@@ -131,14 +135,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					Submit your code
 				</h4>
 			</div>
+			
 			<%
-				   String username = (String)request.getSession().getAttribute("username"); 
+				 String username = (String)request.getSession().getAttribute("username");
 			%>
+			
 			<center>
 			<h4>
 				Username:&nbsp&nbsp&nbsp<%=username %>
 				<br>
-				
+			</h4>
+			 <input type="hidden" value="<%=username%>" id="username"/>
 				Language: 
 				<select class="combobox form-control">
 				  <option value="GNU_C">GNU C</option>
@@ -148,10 +155,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 			</h4>
 			</center>
-			<form  action ="judge_submitCode.action" method = "post"  >
+			<form  action ="judge_submitCode.action" method = "post" onsubmit="return check();" >
 			<div class="modal-body">
 				<center><h4>Source Code: </h4><center>
-				<textarea class="form-control" name= "submitproblem.codetext" rows="30" cols="90"></textarea>
+				<textarea class="form-control" name= "submitproblem.codetext" id ="code_text" rows="30" cols="90"></textarea>
 				
 				
 			</div>
@@ -169,6 +176,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
-  
+ 
+ 
+<script >
+function check(){
+
+var username = document.getElementById("username").value;
+var codeText = document.getElementById("code_text").value;
+if (username==null||username==="null") {
+		$.bootstrapGrowl("Please login !", {
+			ele : 'body',
+			type : 'danger',
+			offset : {
+				from : 'top',
+				amount : 30
+			},
+			align : 'center',
+			width : 400,
+			delay : 2000,
+			allow_dismiss : true,
+			stackup_spacing : 10
+		});
+		return false;
+	}
+if (codeText==null||codeText==="") {
+	$.bootstrapGrowl("Please input your code !", {
+		ele : 'body',
+		type : 'danger',
+		offset : {
+			from : 'top',
+			amount : 30
+		},
+		align : 'center',
+		width : 400,
+		delay : 2000,
+		allow_dismiss : true,
+		stackup_spacing : 10
+	});
+	return false;
+}
+
+}
+
+</script>
   
 </html>

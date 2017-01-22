@@ -1,6 +1,8 @@
 package com.zjgsu.oj;
 
 public class OutResult {
+	public int problemId;
+	public int userId;
 	public String targetId;
 	public String outCompile;
 	public String outExecute;
@@ -12,6 +14,8 @@ public class OutResult {
 	private String state;
 	public OutResult(){
 		//System.out.println("====result");
+		problemId=0;
+		userId=0;
 		state="Œ¥±‡“Î";
 		memory=0;
 		time=0;

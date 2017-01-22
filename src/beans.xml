@@ -97,4 +97,5 @@
     <property name="problemservice" ref="problemservice" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
 	</bean>  	
 	
+
 </beans>

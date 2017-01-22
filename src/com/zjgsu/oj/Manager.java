@@ -44,6 +44,8 @@ public  class Manager implements IManager {
 		}
 		JugeManager judgemanager = new JugeManager();
 		result.code=target.code;
+		result.problemId=target.problemId;
+		result.userId=target.userId;
 		judgemanager.setJugeResult(result);
 	}
 	public void setCompilerName(String name){

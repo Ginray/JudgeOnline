@@ -11,6 +11,8 @@ public class Target {
 	public String output;
 	public String input;
 	public String code;
+	public int problemId;
+	public int userId;
 	public long limitTime;
 	public long limitMemory;
 	public Target(){
@@ -25,8 +27,10 @@ public class Target {
 		limitTime=10;
 		limitMemory=10;
 		targetId="";
+		problemId=0;
+		userId=0;
 	}
-	public Target(String filePath,String fileName,String fileExtension,String objExtension,String input,String output,String code){
+	public Target(String filePath,String fileName,String fileExtension,String objExtension,String input,String output,String code,int problemId,int userId){
 		this.filePath=filePath;
 		this.fileExtension=fileExtension;
 		this.fileName=fileName;
@@ -34,6 +38,8 @@ public class Target {
 		this.output=output;
 		this.input=input;
 		this.code=code;
+		this.problemId=problemId;
+		this.userId=userId;
 		limitTime=10;
 		limitMemory=10;
 	}

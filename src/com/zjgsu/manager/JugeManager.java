@@ -7,18 +7,24 @@ import java.util.Date;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import model.Submitstate;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.zjgsu.oj.JugeSystem;
 import com.zjgsu.oj.OutResult;
 import com.zjgsu.oj.Target;
 import com.zjgsu.service.ProblemService;
 import com.zjgsu.service.ProblemServiceImpl;
 
-public class JugeManager {
+public class JugeManager{
+	
 	private JugeSystem system = null;
  
 	public JugeManager() {
@@ -38,7 +44,8 @@ public class JugeManager {
 			target.filePath = "D:\\My Documents\\Java\\out\\";
 			target.fileExtension = ".java";
 			target.objExtension = ".class";
-			
+			target.userId=Integer.parseInt(userId);
+			target.problemId=Integer.parseInt(problemId);
 			
 			target.input="123";
 			target.output ="123";
@@ -65,6 +72,7 @@ public class JugeManager {
 	/**
 	 * 
 	 */
+	
 	public void setJugeResult(OutResult result) { // 结果提交到数据库
 		
 		//测试是否能加入到数据库
@@ -98,16 +106,17 @@ public class JugeManager {
 		*/
 		
 		Submitstate submitstate = new Submitstate();
-		submitstate.setUserId(10);
-		submitstate.setProblemId(1);
+
+		if(result==null){
+			System.out.println("---result null  judgeManage");
+			return ;
+		}
+		
+		submitstate.setUserId(result.userId);
+		submitstate.setProblemId(result.problemId);
 		//submitstate.setId(100);
 
 	
-		
-	
-		if(result==null){
-			System.out.println("---result null  judgeManage");
-		}
 		String code = result.code;
 		System.out.println(result.targetId + " id");
 		String[] pu = result.targetId.split("_");

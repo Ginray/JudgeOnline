@@ -114,16 +114,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			
 			
-			<form  action ="user_userlogin.action" method = "post">
+			<form  action ="user_userlogin.action" method = "post" onsubmit="return login();">
 			<div class="modal-body">
 				
 				<div class="input-group">
 					<span class="input-group-addon">Username:</span>
-					<input type="text" name ="userinfo.username" class="form-control" placeholder="Username">
+					<input type="text" name ="userinfo.username" id ="login_username" class="form-control" placeholder="Username">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Password:</span>
-					<input type="password" name ="userinfo.password" class="form-control" placeholder="Password">
+					<input type="password" name ="userinfo.password" id="login_password" class="form-control" placeholder="Password">
 				</div><br>
 
 
@@ -162,23 +162,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="modal-body">
 				
 				<div class="input-group">
-					<span class="input-group-addon">Username:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-					<input type="text" name ="userinfo.username" class="form-control" placeholder="Username">
+					<span class="input-group-addon">Username:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*</span>
+					<input type="text" name ="userinfo.username" id ="register_username" class="form-control" placeholder="Username">
 				</div><br>
 				<div class="input-group">
-					<span class="input-group-addon">Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<span class="input-group-addon">Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*</span>
 					<input type="password" name ="userinfo.password" id="password" class="form-control" placeholder="Password">
 				</div><br>
 				<div class="input-group">
-					<span class="input-group-addon">Repeat Password:</span>
+					<span class="input-group-addon">Repeat Password:&nbsp*</span>
 					<input type="password" class="form-control" id="repsword"  placeholder="Repeat Password">
 				</div><br>
 				<div class="input-group">
-					<span class="input-group-addon">Nickname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<span class="input-group-addon">Nickname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*</span>
 					<input type="text" name ="userinfo.nickname" class="form-control" placeholder="Nickname">
 				</div><br>
 				<div class="input-group">
-					<span class="input-group-addon">Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<span class="input-group-addon">Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
 					<input type="text" name ="userinfo.email" class="form-control" placeholder="Email">
 				</div><br>
 			</div>
@@ -226,7 +226,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Nickname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-					<input type="text" name ="userinfo.nickname" class="form-control" placeholder="Nickname">
+					<input type="text" name ="userinfo.nickname" id = "nickname" class="form-control" placeholder="Nickname">
 				</div><br>
 				<div class="input-group">
 					<span class="input-group-addon">Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
@@ -250,9 +250,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <script>
+function login(){
+	
+	var username = document.getElementById("login_username").value;
+	var password = document.getElementById("login_password").value;
+	if(username === ''){
+		   $.bootstrapGrowl("Empty Username !", {  
+			   ele: 'body', // which element to append to  绑定到某个元素  
+			   type: 'danger', // (null, 'info', 'danger', 'success')  提示的类型  
+			   offset: {from: 'top', amount: 30}, // 'top', or 'bottom' 相对顶部或者底部的距离  
+			   align: 'center', // ('left', 'right', or 'center')    位置 左右居中  
+			   width: 400, // (integer, or 'auto') 宽度  
+			   delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!  自动消失时间设置  
+			   allow_dismiss: true, // If true then will display a cross to close the popup. 是否出现小叉叉点击就取消提示框  
+			   stackup_spacing: 10 // spacing between consecutively stacked growls. 相邻提示框的间距   
+			 });  
+	      return false;
+	   }
+	else if(password === ''){
+		   $.bootstrapGrowl("Empty Password !", {  
+			   ele: 'body', // which element to append to  绑定到某个元素  
+			   type: 'danger', // (null, 'info', 'danger', 'success')  提示的类型  
+			   offset: {from: 'top', amount: 30}, // 'top', or 'bottom' 相对顶部或者底部的距离  
+			   align: 'center', // ('left', 'right', or 'center')    位置 左右居中  
+			   width: 400, // (integer, or 'auto') 宽度  
+			   delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!  自动消失时间设置  
+			   allow_dismiss: true, // If true then will display a cross to close the popup. 是否出现小叉叉点击就取消提示框  
+			   stackup_spacing: 10 // spacing between consecutively stacked growls. 相邻提示框的间距   
+			 });  
+	      return false;
+	   }
+}
 function check(){
+	   var username = document.getElementById("register_username").value;
 	   var password = document.getElementById("password").value;
 	   var repsword = document.getElementById("repsword").value;
+	   var nickname = document.getElementById("nickname").value;
+	   if(username === ''){
+		   $.bootstrapGrowl("Empty Username !", {  
+			   ele: 'body', // which element to append to  绑定到某个元素  
+			   type: 'danger', // (null, 'info', 'danger', 'success')  提示的类型  
+			   offset: {from: 'top', amount: 30}, // 'top', or 'bottom' 相对顶部或者底部的距离  
+			   align: 'center', // ('left', 'right', or 'center')    位置 左右居中  
+			   width: 400, // (integer, or 'auto') 宽度  
+			   delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!  自动消失时间设置  
+			   allow_dismiss: true, // If true then will display a cross to close the popup. 是否出现小叉叉点击就取消提示框  
+			   stackup_spacing: 10 // spacing between consecutively stacked growls. 相邻提示框的间距   
+			 });  
+	      return false;
+	   }
 	   if(password === ''){
 		   $.bootstrapGrowl("Empty Password !", {  
 			   ele: 'body', // which element to append to  绑定到某个元素  
@@ -276,6 +322,19 @@ function check(){
 			   delay: 2000, 
 			   allow_dismiss: true, 
 			   stackup_spacing: 10
+			 });  
+	      return false;
+	   }
+	   if(nickname === ''){
+		   $.bootstrapGrowl("Empty Nickname !", {  
+			   ele: 'body', // which element to append to  绑定到某个元素  
+			   type: 'danger', // (null, 'info', 'danger', 'success')  提示的类型  
+			   offset: {from: 'top', amount: 30}, // 'top', or 'bottom' 相对顶部或者底部的距离  
+			   align: 'center', // ('left', 'right', or 'center')    位置 左右居中  
+			   width: 400, // (integer, or 'auto') 宽度  
+			   delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!  自动消失时间设置  
+			   allow_dismiss: true, // If true then will display a cross to close the popup. 是否出现小叉叉点击就取消提示框  
+			   stackup_spacing: 10 // spacing between consecutively stacked growls. 相邻提示框的间距   
 			 });  
 	      return false;
 	   }
