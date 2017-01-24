@@ -37,4 +37,9 @@
 	<param-value>classpath:beans.xml</param-value>
 	</context-param> 
 	
+	<error-page>  
+    <error-code>404</error-code>  
+    <location>/404.jsp</location>  
+	</error-page>  
+	
 </web-app>  
