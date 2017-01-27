@@ -45,44 +45,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-	<div class="row clearfix">
-		<div class="col-md-4 column">
-			<h2>
-				Heading
+
+		
+
+	<div class="panel panel-info">
+		<div class="col-md-6 column ">
+			<h2 class= "panel-heading text text-info">
+			<font face="Kristen ITC">
+				Happy New Year !!!
+			</font>
 			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+			<p class="panel-body">
+			<font size="4" face="Segoe Script">
+				Much joy to you in the up coming year. May the warmest wishes, happy thoughts and friendly greetings come at New Year and stay with you all the year through.
+				<br/><br/>May the coming new year bring you peace, love and new bug &nbsp&nbsp : )
+			</font>
 			</p>
-			<p>
-				 <a class="btn" href="#">View details »</a>
-			</p>
+
 		</div>
-		<div class="col-md-4 column">
-			<h2>
-				Heading
-			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-			<p>
-				 <a class="btn" href="#">View details »</a>
-			</p>
+		<div class="col-md-6 column" >
+		<img src="img/new_year.jpg"/>
 		</div>
-		<div class="col-md-4 column">
-			<h2>
-				Heading
-			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-			<p>
-				 <a class="btn" href="#">View details »</a>
-			</p>
-		</div>
+
 		
 
 	</div>
-</div>
+	</div>
 
  </body>
   
