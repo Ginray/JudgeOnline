@@ -50,12 +50,12 @@ public class JugeManager{
 			target.input="123";
 			target.output ="123";
 			target.code=code;
-			//ÕâÊÇºóÌ¨Êı¾İ
+			//è¿™æ˜¯åå°æ•°æ®
 			System.out.println("input= "+target.input);
 			System.out.println("output= "+target.output);
 			
 			
-			target.setLimit(6000, 10000);	//Ä¬ÈÏÊ±¼äºÍÄÚ´æÏŞ¶¨ 
+			target.setLimit(6000, 10000);	//é»˜è®¤æ—¶é—´å’Œå†…å­˜é™å®š 
 			
 			system.addTarget(target);
 			system.addCode(code);
@@ -73,9 +73,9 @@ public class JugeManager{
 	 * 
 	 */
 	
-	public void setJugeResult(OutResult result) { // ½á¹ûÌá½»µ½Êı¾İ¿â
+	public void setJugeResult(OutResult result) { // ç»“æœæäº¤åˆ°æ•°æ®åº“
 		
-		//²âÊÔÊÇ·ñÄÜ¼ÓÈëµ½Êı¾İ¿â
+		//æµ‹è¯•æ˜¯å¦èƒ½åŠ å…¥åˆ°æ•°æ®åº“
 		/*
 		Submitstate submitstate = new Submitstate();
 		submitstate.setUserId(48);

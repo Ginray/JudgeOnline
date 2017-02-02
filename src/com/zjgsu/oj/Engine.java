@@ -6,21 +6,21 @@ public class Engine implements IEngine {
 	}
 	public void run() {
 		if(manager==null){
-			System.out.println("Ã»ÓĞÄ¿±êÎÄ¼ş£¡");
+			System.out.println("æ²¡æœ‰ç›®æ ‡æ–‡ä»¶ï¼");
 			return;
 		}
 		manager.control();
 	}
 	public Manager getManager() {
 		if(manager==null){
-			System.out.println("Ã»ÓĞÄ¿±êÎÄ¼ş£¡");
+			System.out.println("æ²¡æœ‰ç›®æ ‡æ–‡ä»¶ï¼");
 			return null;
 		}
 		return manager;
 	}
 	public void target(Target target) {
 		if(target==null){
-			System.out.println("Ã»ÓĞÄ¿±êÎÄ¼ş!");
+			System.out.println("æ²¡æœ‰ç›®æ ‡æ–‡ä»¶!");
 			return;
 		}
 		manager=new Manager(target);

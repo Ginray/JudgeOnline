@@ -47,7 +47,7 @@ public class Compiler {
 			}
 		} catch (IOException e) {
 			// e.printStackTrace();
-			System.out.println("´íÎó"+e.getMessage());
+			System.out.println("é”™è¯¯"+e.getMessage());
 		}
 		System.out.println("--end compile--");
 		return result;
@@ -71,7 +71,7 @@ public class Compiler {
 			}
 		} catch (IOException e) {
 			// e.printStackTrace();
-		 	System.out.println("´íÎó"+e.getMessage());
+		 	System.out.println("é”™è¯¯"+e.getMessage());
 		}
 		return result;
 	}
@@ -87,7 +87,7 @@ public class Compiler {
 			result.erroCompile=s;
 			isStdErro.close();
 			readBytes=isStdIn.read(b);
-			readBytes-=2;  //²»°üÀ¨0d 0a
+			readBytes-=2;  //ä¸åŒ…æ‹¬0d 0a
 			if(readBytes<0)
 				readBytes=0;
 			String s1=new String(b,0,readBytes);
@@ -134,13 +134,13 @@ public class Compiler {
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			System.out.println("´íÎó"+e.getMessage());
+			System.out.println("é”™è¯¯"+e.getMessage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("´íÎó"+e.getMessage());
+			System.out.println("é”™è¯¯"+e.getMessage());
 		} 
 	}
-//	¾É°æ±¾
+//	æ—§ç‰ˆæœ¬
 	private void redirectErroToFile(String stdoutFileName){
 		File stdoutFile=new File(target.filePath+stdoutFileName);
 		try {
@@ -155,14 +155,14 @@ public class Compiler {
 			os.close();
 				
 		} catch (FileNotFoundException e) {
-			System.out.println("´íÎó"+e.getMessage());
+			System.out.println("é”™è¯¯"+e.getMessage());
 			//e.printStackTrace();
 		}catch(IOException e){
-			System.out.println("´íÎó"+e.getMessage());
+			System.out.println("é”™è¯¯"+e.getMessage());
 		}
 	}
 	
-//	¾É°æ±¾	
+//	æ—§ç‰ˆæœ¬	
 //	private boolean isErro(){
 //		File ferro=new File(target.filePath+"erroCompile.txt");
 //		//System.out.println("erro.txt l="+ferro.length());
@@ -171,7 +171,7 @@ public class Compiler {
 //		}
 //		return true;
 //	}
-//	¾É°æ±¾
+//	æ—§ç‰ˆæœ¬
 	private boolean isOut(){
 		File fout=new File(target.filePath+"outCompile.txt");
 		if(fout.exists()&&fout.length()<=0){
@@ -185,7 +185,7 @@ public class Compiler {
 		}
 		return false;
 	}
-//	¾É°æ±¾
+//	æ—§ç‰ˆæœ¬
 	private void redirectStdoutToFile(String stderroFileName){
 		File erroFile=new File(target.filePath+stderroFileName);
 		try {
@@ -199,10 +199,10 @@ public class Compiler {
 			is.close();
 			os.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("´íÎó"+e.getMessage());
+			System.out.println("é”™è¯¯"+e.getMessage());
 			//e.printStackTrace();
 		}catch(IOException e){
-			System.out.println("´íÎó"+e.getMessage());
+			System.out.println("é”™è¯¯"+e.getMessage());
 		}
 	}
 }

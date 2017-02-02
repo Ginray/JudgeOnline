@@ -32,11 +32,11 @@ public  class Manager implements IManager {
 			System.out.println("no target file!");
 			return;
 		}
-		if(!"rightAnswer".equals(result.getState())){	//Îª¶à´ÎÆÀÅĞ½á¹û·şÎñ
+		if(!"rightAnswer".equals(result.getState())){	//ä¸ºå¤šæ¬¡è¯„åˆ¤ç»“æœæœåŠ¡
 			result=compiler.compile();
 		}
 		System.out.println(result.getState());
-		if("compileSuccess".equals(result.getState()) ||"rightAnswer".equals(result.getState())){//Îª¶à´ÎÆÀÅĞ½á¹û·şÎñ
+		if("compileSuccess".equals(result.getState()) ||"rightAnswer".equals(result.getState())){//ä¸ºå¤šæ¬¡è¯„åˆ¤ç»“æœæœåŠ¡
 			System.out.println("begine control");			 
 			result=executor.execute(controler); 
 			

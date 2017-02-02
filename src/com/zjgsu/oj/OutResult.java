@@ -16,7 +16,7 @@ public class OutResult {
 		//System.out.println("====result");
 		problemId=0;
 		userId=0;
-		state="Î´±àÒë";
+		state="æœªç¼–è¯‘";
 		memory=0;
 		time=0;
 		outCompile=null;

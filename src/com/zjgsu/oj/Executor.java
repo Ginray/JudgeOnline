@@ -45,7 +45,7 @@ public class Executor {
 		try { 
 			System.out.println();
 			System.out.println("--begine excute--");
-			System.out.println("ÕıÔÚÖ´ĞĞ"+name + " " + args + " " +target.fileName);
+			System.out.println("æ­£åœ¨æ‰§è¡Œ"+name + " " + args + " " +target.fileName);
 			process = rt.exec(name + " " + args + " " +target.fileName);
 			controller.setProcess(process);
 			controller.setOutResult(result);
@@ -74,10 +74,10 @@ public class Executor {
 		} catch (IOException e) {
 			// e.printStackTrace();
 			result.setState("runError");
-			System.out.println("´íÎó" + e.getMessage());
+			System.out.println("é”™è¯¯" + e.getMessage());
 			return result;
 		}catch(Exception ex){
-			System.out.println("´íÎó" + ex.getMessage());
+			System.out.println("é”™è¯¯" + ex.getMessage());
 		}
 		System.out.println(" result="+result.getState());
 		return result;
@@ -90,19 +90,19 @@ public class Executor {
 		// Main main = (Main) mainClass.newInstance();
 		// String[] a = null;
 		// //main.main(a);
-		// System.out.println("ÔËĞĞ³É¹¦");
+		// System.out.println("è¿è¡ŒæˆåŠŸ");
 		// } catch (ClassNotFoundException e) {
-		// System.out.println("Ã»ÕÒµ½" + e.getMessage());
-		// result.setState("ÔËĞĞ³ö´í");
+		// System.out.println("æ²¡æ‰¾åˆ°" + e.getMessage());
+		// result.setState("è¿è¡Œå‡ºé”™");
 		// // e.printStackTrace();
 		// } catch (IllegalAccessException e) {
 		// // TODO Auto-generated catch block
 		// // e.printStackTrace();
-		// System.out.println("´íÎó" + e.getMessage());
+		// System.out.println("é”™è¯¯" + e.getMessage());
 		// } catch (InstantiationException e) {
 		// // TODO Auto-generated catch block
 		// // e.printStackTrace();
-		// System.out.println("´íÎó" + e.getMessage());
+		// System.out.println("é”™è¯¯" + e.getMessage());
 		// }
 	}
 	private void redirectInputDataToProcess() {
@@ -150,7 +150,7 @@ public class Executor {
 			result.erroExecute=s;
 			isStdErro.close();
 			readBytes=isStdIn.read(b);
-			readBytes-=2;  //²»°üÀ¨0d 0a
+			readBytes-=2;  //ä¸åŒ…æ‹¬0d 0a
 			if(readBytes<0)
 				readBytes=0;
 			String s1=new String(b,0,readBytes);
@@ -168,7 +168,7 @@ public class Executor {
 		}
 	}
 	
-	//¾É°æ±¾
+	//æ—§ç‰ˆæœ¬
 	private boolean checkAnswer() {
 		try {
 			File f1 = new File(target.filePath + target.fileName + ".txt");
@@ -203,7 +203,7 @@ public class Executor {
 		}
 		return true;
 	}
-//	¾É°æ±¾
+//	æ—§ç‰ˆæœ¬
 	private void redirectErroToFile( String stdoutFileName) {
 		File stdoutFile = new File(target.filePath + stdoutFileName);
 		stdoutFile.delete();
@@ -219,13 +219,13 @@ public class Executor {
 			os.close();
 
 		} catch (FileNotFoundException e) {
-			System.out.println("´íÎó" + e.getMessage());
+			System.out.println("é”™è¯¯" + e.getMessage());
 			// e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("´íÎó" + e.getMessage());
+			System.out.println("é”™è¯¯" + e.getMessage());
 		}
 	}
-//	¾É°æ±¾
+//	æ—§ç‰ˆæœ¬
 	private void redirectStdoutToFile( String stderroFileName) {
 		File erroFile = new File(target.filePath + stderroFileName);
 		try {
@@ -239,13 +239,13 @@ public class Executor {
 			is.close();
 			os.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("´íÎó" + e.getMessage());
+			System.out.println("é”™è¯¯" + e.getMessage());
 			// e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("´íÎó" + e.getMessage());
+			System.out.println("é”™è¯¯" + e.getMessage());
 		}
 	}
-//	¾É°æ±¾
+//	æ—§ç‰ˆæœ¬
 //	private boolean isErro() {
 //		File ferro = new File(target.filePath + "erroExcute.txt");
 //		// System.out.println("erro.txt l="+ferro.length());

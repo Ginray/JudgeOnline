@@ -1,116 +1,118 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
- * UserInfo entity. @author MyEclipse Persistence Tools
+ * Created by Ginray on 2017/2/2.
  */
 @Entity
-@Table(name = "user_info", catalog = "zjgsu_oj")
-public class UserInfo implements java.io.Serializable {
+@Table(name = "user_info", schema = "zjgsu_oj")
+public class UserInfo {
+    private int uid;
+    private String username;
+    private String password;
+    private String nickname;
+    private String email;
+    private Integer submit;
+    private Integer accept;
 
-	// Fields
+    @Id
+    @Column(name = "uid")
+    public int getUid() {
+        return uid;
+    }
 
-	private Integer uid;
-	private String username;
-	private String password;
-	private String nickname;
-	private String email;
-	private Integer submit;
-	private Integer accept;
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
 
-	// Constructors
+    @Basic
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
+    }
 
-	/** default constructor */
-	public UserInfo() {
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	/** minimal constructor */
-	public UserInfo(String username, String password, String nickname) {
-		this.username = username;
-		this.password = password;
-		this.nickname = nickname;
-	}
+    @Basic
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
 
-	/** full constructor */
-	public UserInfo(String username, String password, String nickname,
-			String email, Integer submit, Integer accept) {
-		this.username = username;
-		this.password = password;
-		this.nickname = nickname;
-		this.email = email;
-		this.submit = submit;
-		this.accept = accept;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	// Property accessors
-	@Id
-	@GeneratedValue
-	@Column(name = "uid", unique = true, nullable = false)
-	public Integer getUid() {
-		return this.uid;
-	}
+    @Basic
+    @Column(name = "nickname")
+    public String getNickname() {
+        return nickname;
+    }
 
-	public void setUid(Integer uid) {
-		this.uid = uid;
-	}
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
-	@Column(name = "username", nullable = false, length = 30)
-	public String getUsername() {
-		return this.username;
-	}
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@Column(name = "password", nullable = false, length = 30)
-	public String getPassword() {
-		return this.password;
-	}
+    @Basic
+    @Column(name = "submit")
+    public Integer getSubmit() {
+        return submit;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setSubmit(Integer submit) {
+        this.submit = submit;
+    }
 
-	@Column(name = "nickname", nullable = false, length = 30)
-	public String getNickname() {
-		return this.nickname;
-	}
+    @Basic
+    @Column(name = "accept")
+    public Integer getAccept() {
+        return accept;
+    }
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
+    public void setAccept(Integer accept) {
+        this.accept = accept;
+    }
 
-	@Column(name = "email", length = 30)
-	public String getEmail() {
-		return this.email;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+        UserInfo that = (UserInfo) o;
 
-	@Column(name = "submit")
-	public Integer getSubmit() {
-		return this.submit;
-	}
+        if (uid != that.uid) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (nickname != null ? !nickname.equals(that.nickname) : that.nickname != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (submit != null ? !submit.equals(that.submit) : that.submit != null) return false;
+        if (accept != null ? !accept.equals(that.accept) : that.accept != null) return false;
 
-	public void setSubmit(Integer submit) {
-		this.submit = submit;
-	}
+        return true;
+    }
 
-	@Column(name = "accept")
-	public Integer getAccept() {
-		return this.accept;
-	}
-
-	public void setAccept(Integer accept) {
-		this.accept = accept;
-	}
-
+    @Override
+    public int hashCode() {
+        int result = uid;
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (submit != null ? submit.hashCode() : 0);
+        result = 31 * result + (accept != null ? accept.hashCode() : 0);
+        return result;
+    }
 }

@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
  * Submitstate entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "submitstate", catalog = "zjgsu_oj")
+@Table(name = "submitstate", schema = "zjgsu_oj")
 public class Submitstate implements java.io.Serializable {
 
 	// Fields

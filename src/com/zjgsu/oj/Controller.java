@@ -77,11 +77,11 @@ public class Controller extends Thread {
 			}
 
 		} catch (IllegalThreadStateException e) {
-			System.out.println("进程尚未退出！");
+			System.out.println("杩涚▼灏氭湭閫�鍑猴紒");
 			return;
 
 		} catch (Exception ex) {
-			System.out.println("程序" + ex.getMessage());
+			System.out.println("绋嬪簭" + ex.getMessage());
 			return;
 		}
 

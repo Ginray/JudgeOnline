@@ -42,14 +42,14 @@ public class test_ssh {
     // @Test  //测试Hibernate的开发环境，因为没有整合，可以直接new  
     public void hihernate() {  
         CategoryService categoryService = new CategoryServiceImpl();  
-        UserInfo userinfo = new UserInfo("t","t","t","t",1,1); 
-        categoryService.save(userinfo);  
+        //UserInfo userinfo = new UserInfo("t","t","t","t",1,1);
+        //categoryService.save(userinfo);
     } 
     
     //注意：在修改的时候一定要有主键
     //@Test //测试Hibernate和Spring整合后  
     public void hibernateAndSpring() {  
-        categoryService.update(new UserInfo("e","e","e","e",1,1)); //categoryService通过Spring从上面注入进来的  
+        //categoryService.update(new UserInfo("e","e","e","e",1,1)); //categoryService通过Spring从上面注入进来的
     }  
     
     @Test

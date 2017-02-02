@@ -6,7 +6,7 @@ public class Result {
 	private String state;
 	public Result(){
 		//System.out.println("====result");
-		state="Î´±àÒë";
+		state="æœªç¼–è¯‘";
 	}
 	public String getState() {
 		return state;
