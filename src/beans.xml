@@ -73,7 +73,7 @@
         <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
     </bean>  
     
-    <bean id="judgeservice" class="com.zjgsu.service.JudgeServiceImpl">  
+    ·<bean id="judgeservice" class="com.zjgsu.service.JudgeServiceImpl">
         <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
     </bean>  
     
@@ -93,9 +93,9 @@
     <property name="judgeservice" ref="judgeservice" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
 	</bean>  	
 	
-	<bean id="ProblemAction" class="com.zjgsu.action.ProblemAction" scope="prototype">  
+	<bean id="ProblemAction" class="com.zjgsu.action.ProblemAction" scope="prototype">
     <property name="problemservice" ref="problemservice" /> <!-- 依赖的categoryService用上面和Hibernate整合时配置好的categoryService -->  
-	</bean>  	
-	
+	</bean>
+
 
 </beans>
