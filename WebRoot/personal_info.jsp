@@ -29,10 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<jsp:include page = "menu.jsp"></jsp:include>
-			
 
-			
-			
+
 			<div class="jumbotron">
 				<%
 				   String username = (String)request.getSession().getAttribute("username"); 

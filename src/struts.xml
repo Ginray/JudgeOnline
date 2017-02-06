@@ -13,8 +13,8 @@
     
     <package name="user" extends="struts-default">  
         <!-- category_update.actiocan： 访问update方法 -->  
-        <action name="user_*" class="UserAction" method="{1}">  
-      	    <result name="success">/index.jsp</result>  
+        <action name="user_*" class="UserAction" method="{1}">
+      	    <result name="success">/index.jsp</result>
             <result name="fail">/index.jsp</result>  
         </action>  
     </package>  
