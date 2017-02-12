@@ -70,7 +70,6 @@ public class test_ssh {
 		try {
 			date = formatter.parse("2016-11-24 21:34:11");
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		submitstate.setSubmitDate(date);

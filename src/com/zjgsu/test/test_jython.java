@@ -29,7 +29,6 @@ public class test_jython {
 		try {
 			pc = rt.exec(ss);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// readIt(); 注意这样也会产生堵塞
@@ -89,7 +88,7 @@ public class test_jython {
 		/*
 		 * try { Process proc = Runtime.getRuntime().exec(
 		 * "python C:\\Users\\ciabok\\Desktop\\submit_code.py"); proc.waitFor();
-		 * } catch (Exception e) { // TODO Auto-generated catch block
+		 * } catch (Exception e) {
 		 * e.printStackTrace(); } System.out.println("test finsh");
 		 */
 	}

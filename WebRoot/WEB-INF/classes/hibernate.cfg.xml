@@ -11,13 +11,8 @@
 		</property>
 
 
-		<property name="connection.url">
-			jdbc:mysql://localhost:3306/zjgsu_oj
-		</property>
-		<property name="connection.username">root</property>
-		<property name="connection.driver_class">
-			com.mysql.jdbc.Driver
-		</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/zjgsu_oj</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 
 
 		<property name="myeclipse.connection.profile">
@@ -28,11 +23,13 @@
 		<property name="show_sql">true</property>
 
 
-		<mapping class="model.Submitstate" />
+        <mapping class="model.Submitstate" />
 		<mapping class="model.UserInfo" />
 		<mapping class="model.Problem" />
+		<mapping class="model.UserInfo"/>
+        <mapping class="model.SolutionEntity"/>
 
 
-	</session-factory>
+    </session-factory>
 
 </hibernate-configuration>

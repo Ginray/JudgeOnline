@@ -207,7 +207,7 @@
             return false;
         }
 
-        if (codeText !== null && (codeText.indexOf("windows.h") >= 0||codeText.indexOf("os") >= 0||codeText.indexOf("io") >= 0  ) ){
+        if (codeText !== null && (codeText.indexOf("windows.h") >= 0||codeText.indexOf("os") >= 0  ) ){
             $.bootstrapGrowl("Illegal  code !", {
                 ele: 'body',
                 type: 'danger',

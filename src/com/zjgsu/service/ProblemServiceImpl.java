@@ -6,6 +6,7 @@ import java.util.Vector;
 import javax.annotation.Resource;
 
 import model.Problem;
+import model.SolutionEntity;
 import model.Submitstate;
 import model.UserInfo;
 
@@ -144,7 +145,32 @@ public class ProblemServiceImpl implements  ProblemService{
 			return null;
 		}
 	}
-	
-	
 
+	@Override
+	public String returnInput(String problemId) {
+		String sql="select * from solution where problem_id = "+problemId;
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(SolutionEntity.class);
+		List<SolutionEntity> li = query.list();
+		if(li.size()>0){
+			return li.get(0).getInput();
+		}else {
+			System.out.println("ProblemServiceImpl returnInput未找到对应input");
+			return null;
+		}
+	}
+
+	@Override
+	public String returnOutput(String problemId) {
+		String sql="select * from solution where problem_id = "+problemId;
+		Session s=HibernateSessionFactory.getSession();
+		Query query = s.createSQLQuery(sql).addEntity(SolutionEntity.class);
+		List<SolutionEntity> li = query.list();
+		if(li.size()>0){
+			return li.get(0).getOutput();
+		}else{
+			System.out.println("ProblemServiceImpl returnOutput未找到对应Output");
+			return null;
+		}
+	}
 }

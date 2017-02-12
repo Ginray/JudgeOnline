@@ -9,6 +9,7 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.sun.corba.se.spi.orbutil.fsm.Input;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,6 +23,8 @@ import com.zjgsu.oj.OutResult;
 import com.zjgsu.oj.Target;
 import com.zjgsu.service.ProblemService;
 import com.zjgsu.service.ProblemServiceImpl;
+
+import static oracle.net.aso.C00.l;
 
 public class JugeManager{
 	
@@ -37,6 +40,7 @@ public class JugeManager{
 
 	public void addJuge(String problemId, String userId, String code) {
 		try {
+			ProblemService problemService  = new ProblemServiceImpl();
 			// Problem problem=problemManager.getProblemById(problemId);
 			Target target = new Target();
 			target.fileName = "Main";
@@ -46,9 +50,13 @@ public class JugeManager{
 			target.objExtension = ".class";
 			target.userId=Integer.parseInt(userId);
 			target.problemId=Integer.parseInt(problemId);
-			
-			target.input="123";
-			target.output ="123";
+
+			target.input=problemService.returnInput(problemId);
+			target.output=problemService.returnOutput(problemId);
+			System.out.println("Input"+ target.input);
+			System.out.println("Output"+target.output);
+			//target.input="123";
+			//target.output ="123";
 			target.code=code;
 			//这是后台数据
 			System.out.println("input= "+target.input);

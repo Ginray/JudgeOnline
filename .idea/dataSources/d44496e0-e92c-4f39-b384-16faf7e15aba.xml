@@ -19,144 +19,159 @@
     <table id="14" parent="1" name="problem"/>
     <table id="15" parent="1" name="submitstate"/>
     <table id="16" parent="1" name="user_info"/>
-    <column id="17" parent="14" name="problem_id">
+    <table id="17" parent="1" name="solution"/>
+    <column id="18" parent="14" name="problem_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="18" parent="14" name="title">
+    <column id="19" parent="14" name="title">
       <mandatory>1</mandatory>
       <data-type>varchar(200)|0</data-type>
       <default-expression>&apos;&apos;</default-expression>
     </column>
-    <column id="19" parent="14" name="description">
+    <column id="20" parent="14" name="description">
       <data-type>text|0</data-type>
     </column>
-    <column id="20" parent="14" name="input">
+    <column id="21" parent="14" name="input">
       <data-type>text|0</data-type>
     </column>
-    <column id="21" parent="14" name="output">
+    <column id="22" parent="14" name="output">
       <data-type>text|0</data-type>
     </column>
-    <column id="22" parent="14" name="sample_input">
+    <column id="23" parent="14" name="sample_input">
       <data-type>text|0</data-type>
     </column>
-    <column id="23" parent="14" name="sample_output">
+    <column id="24" parent="14" name="sample_output">
       <data-type>text|0</data-type>
     </column>
-    <column id="24" parent="14" name="spj">
+    <column id="25" parent="14" name="spj">
       <mandatory>1</mandatory>
       <data-type>char(1)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="25" parent="14" name="hint">
+    <column id="26" parent="14" name="hint">
       <data-type>text|0</data-type>
     </column>
-    <column id="26" parent="14" name="source">
+    <column id="27" parent="14" name="source">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="27" parent="14" name="in_date">
+    <column id="28" parent="14" name="in_date">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="28" parent="14" name="time_limit">
+    <column id="29" parent="14" name="time_limit">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="29" parent="14" name="memory_limit">
+    <column id="30" parent="14" name="memory_limit">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="30" parent="14" name="defunct">
+    <column id="31" parent="14" name="defunct">
       <mandatory>1</mandatory>
       <data-type>char(1)|0</data-type>
       <default-expression>&apos;N&apos;</default-expression>
     </column>
-    <column id="31" parent="14" name="accepted">
+    <column id="32" parent="14" name="accepted">
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="32" parent="14" name="submit">
+    <column id="33" parent="14" name="submit">
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="33" parent="14" name="solved">
+    <column id="34" parent="14" name="solved">
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <key id="34" parent="14" name="PRIMARY">
+    <key id="35" parent="14" name="PRIMARY">
       <columns>problem_id</columns>
       <primary>1</primary>
     </key>
-    <column id="35" parent="15" name="id">
+    <column id="36" parent="15" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="36" parent="15" name="problem_id">
+    <column id="37" parent="15" name="problem_id">
       <mandatory>1</mandatory>
       <data-type>int(20)|0</data-type>
     </column>
-    <column id="37" parent="15" name="user_id">
+    <column id="38" parent="15" name="user_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="38" parent="15" name="state">
+    <column id="39" parent="15" name="state">
       <data-type>varchar(20)|0</data-type>
     </column>
-    <column id="39" parent="15" name="codeType">
+    <column id="40" parent="15" name="codeType">
       <data-type>char(10)|0</data-type>
       <default-expression>&apos;java&apos;</default-expression>
     </column>
-    <column id="40" parent="15" name="memory">
+    <column id="41" parent="15" name="memory">
       <data-type>varchar(20)|0</data-type>
     </column>
-    <column id="41" parent="15" name="runtime">
+    <column id="42" parent="15" name="runtime">
       <data-type>varchar(20)|0</data-type>
     </column>
-    <column id="42" parent="15" name="submitDate">
+    <column id="43" parent="15" name="submitDate">
       <mandatory>1</mandatory>
       <data-type>date|0</data-type>
     </column>
-    <column id="43" parent="15" name="codeLength">
+    <column id="44" parent="15" name="codeLength">
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <key id="44" parent="15" name="PRIMARY">
+    <key id="45" parent="15" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="45" parent="16" name="uid">
+    <column id="46" parent="16" name="uid">
       <mandatory>1</mandatory>
       <data-type>int(20)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="46" parent="16" name="username">
+    <column id="47" parent="16" name="username">
       <mandatory>1</mandatory>
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="47" parent="16" name="password">
+    <column id="48" parent="16" name="password">
       <mandatory>1</mandatory>
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="48" parent="16" name="nickname">
+    <column id="49" parent="16" name="nickname">
       <mandatory>1</mandatory>
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="49" parent="16" name="email">
+    <column id="50" parent="16" name="email">
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="50" parent="16" name="submit">
+    <column id="51" parent="16" name="submit">
       <data-type>int(20) unsigned zerofill|0</data-type>
       <default-expression>&apos;00000000000000000000&apos;</default-expression>
     </column>
-    <column id="51" parent="16" name="accept">
+    <column id="52" parent="16" name="accept">
       <data-type>int(20) unsigned zerofill|0</data-type>
       <default-expression>&apos;00000000000000000000&apos;</default-expression>
     </column>
-    <key id="52" parent="16" name="PRIMARY">
+    <key id="53" parent="16" name="PRIMARY">
       <columns>uid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="54" parent="17" name="problem_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="55" parent="17" name="input">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="56" parent="17" name="output">
+      <data-type>text|0</data-type>
+    </column>
+    <key id="57" parent="17" name="PRIMARY">
+      <columns>problem_id</columns>
       <primary>1</primary>
     </key>
   </database-model>

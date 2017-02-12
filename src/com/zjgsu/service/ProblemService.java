@@ -8,12 +8,13 @@ import model.Submitstate;
 import model.UserInfo;
 
 public interface ProblemService {
-	public List<Submitstate> showState();
-	public List<Problem> showProblem();
-	public void saveState(Submitstate submitstate);
-	public String findUsername(int cid);
-	public Problem getProblemById(String id);
-	public List<Problem> searchProblem(String keyword);
-	public List<Submitstate>searchState(String keyword);
-	
+	List<Submitstate> showState();
+	List<Problem> showProblem();
+	void saveState(Submitstate submitstate);
+	String findUsername(int cid);
+	Problem getProblemById(String id);
+	List<Problem> searchProblem(String keyword);
+	List<Submitstate>searchState(String keyword);
+	String returnInput(String problemId);
+	String returnOutput(String problemId);
 }

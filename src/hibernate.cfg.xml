@@ -23,12 +23,13 @@
 		<property name="show_sql">true</property>
 
 
-		<mapping class="model.Submitstate" />
+        <mapping class="model.Submitstate" />
 		<mapping class="model.UserInfo" />
 		<mapping class="model.Problem" />
 		<mapping class="model.UserInfo"/>
+        <mapping class="model.SolutionEntity"/>
 
 
-	</session-factory>
+    </session-factory>
 
 </hibernate-configuration>
