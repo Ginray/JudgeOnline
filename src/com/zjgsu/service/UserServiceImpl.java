@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zjgsu.utils.HibernateSessionFactory;
+import org.springframework.util.DigestUtils;
 
 import static javafx.scene.input.KeyCode.R;
 import static org.apache.struts2.ServletActionContext.getResponse;
@@ -76,6 +77,13 @@ public class UserServiceImpl implements UserService {
                 request.getSession().setAttribute("password", li.get(0).getPassword());
                 request.getSession().setAttribute("nickname", li.get(0).getNickname());
                 request.getSession().setAttribute("email", li.get(0).getEmail());
+                if(li.get(0).getEmail()!=null){
+                    String MD5= DigestUtils.md5DigestAsHex(li.get(0).getEmail().getBytes());
+                    System.out.println("MD5"+MD5);
+                    request.getSession().setAttribute("MD5", MD5);
+                }else{
+                    request.getSession().setAttribute("MD5", "d4c74594d84113932869575bdrdt6");
+                }
                 ServletContext app = request.getServletContext();
                 ArrayList<String> loginList = (ArrayList<String>) app.getAttribute("loginlist");
                 if (loginList == null) {
@@ -124,7 +132,7 @@ public class UserServiceImpl implements UserService {
                     System.out.println("send_URL=" + to_URL);
                     response.sendRedirect(to_URL);
                 }
-                return "fial";
+                return "fail";
             } else {
                 getSession().save(userinfo);
                 request.getSession().setAttribute("username", userinfo.getUsername());

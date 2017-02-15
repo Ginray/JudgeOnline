@@ -57,11 +57,18 @@
         <ul class="nav navbar-nav navbar-right">
             <%
                 String username = (String) request.getSession().getAttribute("username");
+                String imgURL="http://www.gravatar.com/avatar/"+request.getSession().getAttribute("MD5")+"?s=16&d=identicon&r=g%27";
             %>
             <%
                 if (username != null) {
             %>
+
+            <li>
+                <a><img class="img-rounded profile-thumbnail" src=<%=imgURL%>></a>
+            </li>
+
             <li class="dropdown">
+
                 <a href="personal_info.jsp" class="dropdown-toggle" data-toggle="dropdown"><%=username %>&nbsp&nbsp
                     <strong class="caret"></strong></a>
                 <ul class="dropdown-menu">
