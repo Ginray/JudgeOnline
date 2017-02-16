@@ -38,8 +38,11 @@ public class test_jython {
 	public static void writeIt() {
 		OutputStream fos = pc.getOutputStream();
 		PrintStream ps = new PrintStream(fos);
-		ps.print("ginxidx\n");
-		ps.print("123456\n");
+		//ps.print("ginxidx\n");
+		//ps.print("123456\n");
+		ps.print("1001\n");
+		ps.print("2\n");
+		ps.print("mainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmaintest\n");
 		ps.flush(); // 不加这个 后面的read就读不下去了
 		readIt();
 	}

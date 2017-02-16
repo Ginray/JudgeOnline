@@ -13,55 +13,53 @@ from  bs4 import BeautifulSoup
 import sys
 import urllib2
 
-global username,password
-global pro_id
-
 headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER'
 }
 
+language = {'g++': '0',
+            'gcc': '1',
+            'c++': '2',
+            'c': '3',
+            'pascal': '4',
+            'java': '5',
+            'c#': '6',
+            'cpp': '0'
 
-language={  'g++':'0',
-            'gcc':'1',
-            'c++':'2',
-            'c':'3',
-            'pascal':'4',
-            'java':'5',
-            'c#':'6',
-            'cpp':'0'
-
-}
+            }
 
 start_pro = 1000
 end_pro = 5000
 
 
 def login():
-
-    username=raw_input("please input username:\n")
-    password=raw_input("please input password:\n")
+    global username
+    username = 'ginxidx'
+    global password
+    password = '123456'
+    # username=raw_input("please input username:\n")
+    # password=raw_input("please input password:\n")
     # type: () -> object
 
-    login_info={
-        'username':username.strip(),
-        'userpass':password.strip(),
+    login_info = {
+        'username': username.strip(),
+        'userpass': password.strip(),
     }
 
     hdu_url = 'http://acm.hdu.edu.cn/userloginex.php?action=login'
 
-    login_info=urllib.urlencode(login_info)
+    login_info = urllib.urlencode(login_info)
 
-    co= cookielib.LWPCookieJar()
-    opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(co))
+    co = cookielib.LWPCookieJar()
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(co))
 
-    hdu_session=urllib2.Request(hdu_url,login_info,headers)
+    hdu_session = urllib2.Request(hdu_url, login_info, headers)
     try:
-        loginin=opener.open(hdu_session).read()
+        loginin = opener.open(hdu_session).read()
     except:
         print'请检查网络是否联通'
 
-
-    if(loginin.find('No such user or wrong password.')!=-1):
+    if (loginin.find('No such user or wrong password.') != -1):
         print 'No such user or wrong password.'
         exit()
 
@@ -71,28 +69,49 @@ def login():
     return
 
 
-
-def status (pro_id):
-    global qian_id, headers
-    status_url = 'http://acm.hdu.edu.cn/status.php?user=' + qian_id
+def status(pro_id):
+    global headers
+    status_url = 'http://acm.hdu.edu.cn/status.php?user=' + username
     req = urllib2.Request(status_url, urllib.urlencode({}), headers)
 
-    while(True):
+    while (True):
         time.sleep(1)
 
-        html=urllib2.urlopen(req).read()
-        soup=BeautifulSoup(html,'lxml')
-        for i in soup.table.find_all('table')[-2].find_add('tr'):
-            ans=i.find_all['td']
-            if(ans[3].string==pro_id):
-                dan=ans[2].string
-                if(dan!='Queuing'and dan!='Comiling'):
+        html = urllib2.urlopen(req).read()
+        soup = BeautifulSoup(html, 'lxml')
+
+        for i in soup.table.find_all('table')[-2].find_all('tr'):
+            ans = i.find_all('td')
+            if (ans[3].string == pro_id):
+                dan = ans[2].string
+                if (dan != 'Running' and dan != 'Compiling' and dan!='Queuing'):
                     print dan
                     return
                 break
 
 
-def submit_code(final_code):
+def submit_code():
+    global pro_id
+    pro_id = '1000'
+    global final_code
+    '''
+        注意\n的处理
+    '''
+    final_code = '''#include<stdio.h>
+    int main()
+    {
+    int a,b;
+    while(scanf("%d%d",&a,&b)!=EOF)
+    printf("%d\\n",a+b);
+    return 0;
+    }'''
+
+    global sub_language
+    sub_language = 2
+    # pro_id = raw_input("please input pro_id:\n")
+    # final_code = raw_input("please input code:\n")
+    # sub_language = raw_input("please input sub_language:\n")
+
     global headers
 
     # POST
@@ -113,17 +132,14 @@ def submit_code(final_code):
                 post_data = {
                     'problemid': pro_id,
                     'usercode': code,
-                    'language': language[code.get('class')[0]]
+                    'language': sub_language
                 }
                 # 需要给Post数据编码
                 postData = urllib.urlencode(post_data)
                 request = urllib2.Request(submit_url, postData, headers)
                 print 'post ' + pro_id
                 urllib2.urlopen(request)
-                # status(pro_id)
-                f = open('ac.txt', 'a+')
-                f.write(pro_id + '  ')
-                f.close()
+                status(pro_id)
                 print '------------------ ' + pro_id + ' Submit successfully\n'
         except KeyError, TypeError:
             print 'KeyError'
@@ -132,13 +148,8 @@ def submit_code(final_code):
         print 'URLError'
 
 
-
-
-
-
 if __name__ == '__main__':
-    print sys.path
-    print 'test jython'
+    print 'submit code start'
     reload(sys)
     login()
-    submit_code("final_code")
+    submit_code()
