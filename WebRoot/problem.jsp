@@ -153,9 +153,10 @@
                 <input type="hidden" value="<%=username%>" id="username"/>
                 Language:
                 <select class="combobox form-control">
+                    <option value="JAVA">JAVA</option>
                     <option value="GNU_C">GNU C</option>
                     <option value="GNU_C++">GNU C++</option>
-                    <option value="JAVA">JAVA</option>
+
                 </select>
 
                 </h4>
@@ -207,7 +208,7 @@
             return false;
         }
 
-        if (codeText !== null && (codeText.indexOf("windows.h") >= 0||codeText.indexOf("os") >= 0  ) ){
+        if (codeText !== null && (codeText.indexOf("windows.h") >= 0||codeText.indexOf("os") >= 0     ) ){
             $.bootstrapGrowl("Illegal  code !", {
                 ele: 'body',
                 type: 'danger',

@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 
+import com.zjgsu.oj.VirtualJudge;
 import org.python.core.Py;
 import org.python.core.PyFunction;
 import org.python.core.PyInteger;
@@ -25,7 +26,7 @@ public class test_jython {
 
 	public static void main(String args[]) {
 		rt = Runtime.getRuntime();
-		String ss = "python G:\\javaworkspace\\JudgeOnline\\python_script\\submit_code.py";
+		String ss = "python G:\\IDEAProjects\\JudgeOnline\\python_script\\submit_code.py";
 		try {
 			pc = rt.exec(ss);
 		} catch (IOException e) {
@@ -67,7 +68,7 @@ public class test_jython {
 		try {
 			System.out.println("start");
 			Process pr = Runtime.getRuntime().exec(
-					"python G:\\javaworkspace\\JudgeOnline\\python_script\\submit_code.py");
+					"python G:\\IDEAProjects\\JudgeOnline\\python_script\\submit_code.py");
 
 			OutputStream fos = pr.getOutputStream();
 			PrintStream ps = new PrintStream(fos);
@@ -96,4 +97,10 @@ public class test_jython {
 		 */
 	}
 
+
+	@Test
+	public void testVirtualJudge(){
+		VirtualJudge virtualJudge = new VirtualJudge();
+		virtualJudge.judge("1001","2","mainmainmainmainmaintestmaintestestet","1");
+	}
 }

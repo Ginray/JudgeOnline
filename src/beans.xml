@@ -73,7 +73,7 @@
         <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
     </bean>  
     
-    ·<bean id="judgeservice" class="com.zjgsu.service.JudgeServiceImpl">
+    <bean id="judgeservice" class="com.zjgsu.service.JudgeServiceImpl">
         <property name="sessionFactory" ref="sessionFactory" /><!-- 依赖的sessionFactory用我们之前配好的sessionFactory-->  
     </bean>  
     

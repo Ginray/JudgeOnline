@@ -4,6 +4,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.zjgsu.oj.VirtualJudge;
 import model.SubmitProblem;
 
 import org.apache.struts2.ServletActionContext;
@@ -78,7 +79,12 @@ public class JudgeServiceImpl implements JudgeService{
 					String uId =request.getSession().getAttribute("userid").toString();
 					String problemId =(String) request.getSession().getAttribute("problemId");
 					if(uId!=null&&problemId!=null){
-						jugeManager.addJuge(problemId,uId, codeText);
+						if(Integer.parseInt(problemId)<=1001) {
+							jugeManager.addJuge(problemId, uId, codeText);
+						}else{
+							VirtualJudge virtualJudge = new VirtualJudge();
+							virtualJudge.judge(problemId,"5",codeText,uId);
+						}
 					}else{
 						System.out.println("userId 或problemId 为空!");
 					}

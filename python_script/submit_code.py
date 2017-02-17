@@ -76,7 +76,7 @@ def status(pro_id):
 
     while (True):
         time.sleep(1)
-
+        print 'finding status......'
         html = urllib2.urlopen(req).read()
         soup = BeautifulSoup(html, 'lxml')
 
@@ -90,24 +90,22 @@ def status(pro_id):
                 break
 
 
-def submit_code():
-    global pro_id
-    pro_id = '1000'
-    global final_code
+def submit_code(pro_id,sub_language,code):
+
     '''
         注意\n的处理
     '''
-    final_code = '''#include<stdio.h>
+
+    '''
+    final_code = #include<stdio.h>
     int main()
     {
     int a,b;
     while(scanf("%d%d",&a,&b)!=EOF)
     printf("%d\\n",a+b);
     return 0;
-    }'''
-
-    global sub_language
-    sub_language = 2
+    }
+    '''
     # pro_id = raw_input("please input pro_id:\n")
     # final_code = raw_input("please input code:\n")
     # sub_language = raw_input("please input sub_language:\n")
@@ -121,26 +119,25 @@ def submit_code():
     sesson.headers.update(headers)
 
     try:
-        code = final_code  # 最终代码
 
         if code == None:
             return
 
         try:
-            if (code.find('main') != -1):  # 如果代码中有main函数
-                # POST数据
-                post_data = {
-                    'problemid': pro_id,
-                    'usercode': code,
-                    'language': sub_language
-                }
-                # 需要给Post数据编码
-                postData = urllib.urlencode(post_data)
-                request = urllib2.Request(submit_url, postData, headers)
-                print 'post ' + pro_id
-                urllib2.urlopen(request)
-                status(pro_id)
-                print '------------------ ' + pro_id + ' Submit successfully\n'
+            # POST数据
+            post_data = {
+                'problemid': pro_id,
+                'usercode': code,
+                'language': sub_language
+            }
+            # 需要给Post数据编码
+            postData = urllib.urlencode(post_data)
+            request = urllib2.Request(submit_url, postData, headers)
+            print 'post ' + pro_id
+            urllib2.urlopen(request)
+            status(pro_id)
+            print '------------------ ' + pro_id + ' Submit successfully\n'
+            
         except KeyError, TypeError:
             print 'KeyError'
 
@@ -152,4 +149,7 @@ if __name__ == '__main__':
     print 'submit code start'
     reload(sys)
     login()
-    submit_code()
+    pro_id=raw_input('please input problem id\n')
+    sub_language=raw_input('please input language\n')
+    code =raw_input('please input your code\n')
+    submit_code(pro_id,sub_language,code)

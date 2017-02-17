@@ -28,7 +28,10 @@
     <link rel="Shortcut Icon" href="img/zjgsu.png"/>
 
     <!-- 自动刷新 -->
-    <meta http-equiv="refresh" content="2;url=status.jsp">
+    <!--
+        <meta http-equiv="refresh" content="2;url=status.jsp">
+    -->
+
 </head>
 
 <body onLoad="goPage(1,20);">

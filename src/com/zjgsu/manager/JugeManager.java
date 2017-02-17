@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.sun.corba.se.spi.orbutil.fsm.Input;
+import com.zjgsu.oj.VirtualJudge;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,6 +26,7 @@ import com.zjgsu.service.ProblemService;
 import com.zjgsu.service.ProblemServiceImpl;
 
 import static oracle.net.aso.C00.l;
+import static oracle.net.aso.C00.v;
 
 public class JugeManager{
 	
@@ -75,6 +77,11 @@ public class JugeManager{
 		} catch (Exception e) {
 			System.out.println(e.getMessage() + " add JugeManager");
 		}
+	}
+
+	public void addVirtualJudge(String problemId, String code_type,String code,String userId){
+		VirtualJudge virtualJudge=new VirtualJudge();
+		virtualJudge.judge(problemId,code_type,code,userId);
 	}
 
 	/**
