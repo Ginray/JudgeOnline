@@ -100,16 +100,26 @@
             <%
                 String color;
                 String state = s.getState();
-                if ("rightAnswer".equals(state))
+                String showState;
+                if ("rightAnswer".equals(state)) {
                     color = "text-success";
-                else if ("compileError".equals(state))
+                    showState="Accepted";
+                }
+                else if ("compileError".equals(state)){
                     color = "text-primary";
-                else
+                    showState="Compilation Error";
+                }
+                else if("wrongAnswer".equals(state)){
                     color = "text-danger";
-
+                    showState="Wrong Answer";
+                }
+                else {
+                    color = "text-danger";
+                    showState=state;
+                }
                 int memory = Integer.valueOf(s.getMemory()) / 1024;
             %>
-            <td class=<%=color %>><%=s.getState()%>
+            <td class=<%=color %>><%=showState%>
             </td>
             <td><%=s.getCodeType() %>
             </td>

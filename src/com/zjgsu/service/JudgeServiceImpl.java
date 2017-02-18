@@ -82,8 +82,8 @@ public class JudgeServiceImpl implements JudgeService{
 						if(Integer.parseInt(problemId)<=1001) {
 							jugeManager.addJuge(problemId, uId, codeText);
 						}else{
-							VirtualJudge virtualJudge = new VirtualJudge();
-							virtualJudge.judge(problemId,"5",codeText,uId);
+							String newCodeText = codeText+"\n"+"###CODEEND";
+							jugeManager.addVirtualJudge(problemId,"5",newCodeText,uId);
 						}
 					}else{
 						System.out.println("userId 或problemId 为空!");
@@ -92,7 +92,7 @@ public class JudgeServiceImpl implements JudgeService{
 					direct="SubmitResult.jsp";
 				}
 			}else{
-				//
+				System.out.println("codeText is null");
 			}
 			
 

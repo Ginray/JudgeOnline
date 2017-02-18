@@ -79,7 +79,7 @@ public class ProblemServiceImpl implements  ProblemService{
 	
 	@Override
 	public List<Problem> showProblem() {
-		String sql="select * from problem";
+		String sql="select * from problem order by problem_id";
 		Session s=HibernateSessionFactory.getSession();
 		Query query = s.createSQLQuery(sql).addEntity(Problem.class);
 		List<Problem> li = query.list();

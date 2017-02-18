@@ -19,75 +19,78 @@ import org.python.core.PySystemState;
 import org.python.util.PythonInterpreter;
 import org.junit.Test;
 
+import static oracle.net.aso.C00.n;
+import static oracle.net.aso.C00.s;
+
 public class test_jython {
-	static Process pc;
-	static Runtime rt;
-	
+    static Process pc;
+    static Runtime rt;
 
-	public static void main(String args[]) {
-		rt = Runtime.getRuntime();
-		String ss = "python G:\\IDEAProjects\\JudgeOnline\\python_script\\submit_code.py";
-		try {
-			pc = rt.exec(ss);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		// readIt(); 注意这样也会产生堵塞
-		writeIt();
-	}
 
-	public static void writeIt() {
-		OutputStream fos = pc.getOutputStream();
-		PrintStream ps = new PrintStream(fos);
-		//ps.print("ginxidx\n");
-		//ps.print("123456\n");
-		ps.print("1001\n");
-		ps.print("2\n");
-		ps.print("mainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmaintest\n");
-		ps.flush(); // 不加这个 后面的read就读不下去了
-		readIt();
-	}
+    public static void main(String args[]) {
+        rt = Runtime.getRuntime();
+        String ss = "python G:\\IDEAProjects\\JudgeOnline\\python_script\\submit_code.py";
+        try {
+            pc = rt.exec(ss);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // readIt(); 注意这样也会产生堵塞
+        writeIt();
+    }
 
-	public static void readIt() {
-		InputStream ios = pc.getInputStream();
-		BufferedReader br = new BufferedReader(new InputStreamReader(ios));
-		String s;
-		try {
-			while ((s = br.readLine()) != null) {
-				System.out.println(s);
-			}
-			br.close();
-			ios.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    public static void writeIt() {
+        OutputStream fos = pc.getOutputStream();
+        PrintStream ps = new PrintStream(fos);
+        //ps.print("ginxidx\n");
+        //ps.print("123456\n");
+        ps.print("1001\n");
+        ps.print("2\n");
+        ps.print("mainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmaintest\n");
+        ps.flush(); // 不加这个 后面的read就读不下去了
+        readIt();
+    }
 
-	public void test_process() {
+    public static void readIt() {
+        InputStream ios = pc.getInputStream();
+        BufferedReader br = new BufferedReader(new InputStreamReader(ios));
+        String s;
+        try {
+            while ((s = br.readLine()) != null) {
+                System.out.println(s);
+            }
+            br.close();
+            ios.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-		try {
-			System.out.println("start");
-			Process pr = Runtime.getRuntime().exec(
-					"python G:\\IDEAProjects\\JudgeOnline\\python_script\\submit_code.py");
+    public void test_process() {
 
-			OutputStream fos = pr.getOutputStream();
-			PrintStream ps = new PrintStream(fos);
-			ps.print("another\n");
-			ps.flush(); // 不加这个 后面的read就读不下去了
+        try {
+            System.out.println("start");
+            Process pr = Runtime.getRuntime().exec(
+                    "python G:\\IDEAProjects\\JudgeOnline\\python_script\\submit_code.py");
 
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-					pr.getInputStream()));
-			String line;
-			while ((line = in.readLine()) != null) {
-				System.out.println(line);
-			}
-			in.close();
+            OutputStream fos = pr.getOutputStream();
+            PrintStream ps = new PrintStream(fos);
+            ps.print("another\n");
+            ps.flush(); // 不加这个 后面的read就读不下去了
 
-			pr.waitFor();
-			System.out.println("end");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    pr.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+                System.out.println(line);
+            }
+            in.close();
+
+            pr.waitFor();
+            System.out.println("end");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 		/*
 		 * try { Process proc = Runtime.getRuntime().exec(
@@ -95,12 +98,21 @@ public class test_jython {
 		 * } catch (Exception e) {
 		 * e.printStackTrace(); } System.out.println("test finsh");
 		 */
-	}
+    }
 
 
-	@Test
-	public void testVirtualJudge(){
-		VirtualJudge virtualJudge = new VirtualJudge();
-		virtualJudge.judge("1001","2","mainmainmainmainmaintestmaintestestet","1");
-	}
+    @Test
+    public void testVirtualJudge() {
+        VirtualJudge virtualJudge = new VirtualJudge();
+        virtualJudge.judge("1001", "2", "mainmainmainmainmaintestmaintestestet", "1");
+    }
+
+    @Test
+    public void testVJCode(){
+        String codeTest ="\nmain\ntest\nsyso()";
+        System.out.println(codeTest);
+        String newcode = codeTest.replaceAll("\n","\\n");
+        System.out.println(newcode);
+    }
+
 }

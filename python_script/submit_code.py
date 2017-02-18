@@ -151,5 +151,9 @@ if __name__ == '__main__':
     login()
     pro_id=raw_input('please input problem id\n')
     sub_language=raw_input('please input language\n')
-    code =raw_input('please input your code\n')
+    print 'please input your code\n'
+    code =''
+    stopWord = '###CODEEND'
+    for line in iter(raw_input, stopWord):
+        code += line + '\n'
     submit_code(pro_id,sub_language,code)
