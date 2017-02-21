@@ -57,6 +57,10 @@ public class VirtualJudge {
                     result.setState("wrongAnswer");
                 }else if(s.contains("Accepted")){
                     result.setState("rightAnswer");
+                }else if(s.contains("MS")){
+                    result.setTime(Long.parseLong(s.replace("MS","")));
+                }else if(s.contains("K")){
+                    result.setMemory(Long.parseLong(s.replace("K","")));
                 }
             }
             br.close();

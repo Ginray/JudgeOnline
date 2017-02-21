@@ -123,9 +123,9 @@
             </td>
             <td><%=s.getCodeType() %>
             </td>
-            <td><%=s.getRuntime() %> ms</td>
-            <td><%=memory%> byte</td>
-            <td><%=s.getCodeLength() %>
+            <td><%=s.getRuntime() %> MS</td>
+            <td><%=memory%> K</td>
+            <td><%=s.getCodeLength() %> B
             </td>
             <td><%=s.getSubmitDate() %>
             </td>

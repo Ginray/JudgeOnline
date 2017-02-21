@@ -86,6 +86,8 @@ def status(pro_id):
                 dan = ans[2].string
                 if (dan != 'Running' and dan != 'Compiling' and dan!='Queuing'):
                     print dan
+                    print ans[4].string
+                    print ans[5].string
                     return
                 break
 
