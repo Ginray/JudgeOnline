@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88e9330-1a61-4abc-88ff-5ddc5c675fe3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/index.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/person_info.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/problem.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/problem_list.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/problem_submit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/status.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version_control.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
@@ -1156,7 +1149,7 @@
       <workItem from="1487425450537" duration="1001000" />
       <workItem from="1487428064366" duration="76000" />
       <workItem from="1487654472566" duration="1354000" />
-      <workItem from="1487758362084" duration="671000" />
+      <workItem from="1487758362084" duration="883000" />
     </task>
     <task id="LOCAL-00001" summary="change to IDEA project">
       <created>1486041118231</created>
@@ -1221,7 +1214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487655229460</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update README.md">
+      <created>1487761147956</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1487761147956</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1257,7 +1257,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84503000" />
+    <option name="totallyTimeSpent" value="84715000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1360,7 +1360,8 @@
     <MESSAGE value="1、整合了VirtualJudge的功能  2、修复了beans.xml中一个不可见的字符导致的bug问题。" />
     <MESSAGE value="修复VJ不能正确提交回车键的问题&#10;" />
     <MESSAGE value="修复不能爬取Time和Memory的问题。" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复不能爬取Time和Memory的问题。" />
+    <MESSAGE value="update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
