@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d88e9330-1a61-4abc-88ff-5ddc5c675fe3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="JudgeOnline.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1149,7 +1148,7 @@
       <workItem from="1487425450537" duration="1001000" />
       <workItem from="1487428064366" duration="76000" />
       <workItem from="1487654472566" duration="1354000" />
-      <workItem from="1487758362084" duration="883000" />
+      <workItem from="1487758362084" duration="902000" />
     </task>
     <task id="LOCAL-00001" summary="change to IDEA project">
       <created>1486041118231</created>
@@ -1221,7 +1220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487761147956</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update README.md">
+      <created>1487761338959</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1487761338959</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1257,7 +1263,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84715000" />
+    <option name="totallyTimeSpent" value="84734000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
