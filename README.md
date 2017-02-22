@@ -1,86 +1,147 @@
-###最近的进度非常慢，因此直接开个项目，一是可以做版本控制，二也好督促自己。
+### 1、功能：
 
-
-####11.9日志:
-+ 完成了主页面和题目界面的jsp代码。确定以bootstrap为主要界面模板。
-
-####11.10日志：
-+ 完成了spring和hibernate的整合
-
-####11.11日志：
-+ ~~过单身节~~完成了ssh框架的整合
-
-####11.12日志:
-+ 完成了用户的登陆和注册(个人信息界面待做，包括用户的退出)
-
-####11.13日志：
-+ 完成用户的基本操作（登陆，修改，显示信息、登出）
-+ 用户的数据库信息需要重新设计（需要包括AC数、提交数等信息）
-
-####11.14日志：
-+ 把题目界面先写死了。完成了判题部分再修改吧。之后要花好久考虑判题部分了。
-
-####11.17日志：
-+ 写了部分judge servlet和judge action。
-
-####11.18日志：
-+ 连接 action 和 servlet。
-
-####11.20日志：
-+ 写了status界面的数据库部分。
-
-####11.25日志：
-+ 添加数据库表。
-
-####11.26日志：
-+ 写了题目列表。
-
-####11.27日志：
-+ 写了manager部分。
-
-####11.29日志：
-+ 更新题目列表。
-
-####11.30日志：
-+ 修复了一个bug。
-
-####12.1日志：
-+ 测试了jython。
-
-####12.2日志：
-+ 测试了分页功能。
-
-####12.4日志：
-+ 完善分页功能包括bug修复。
-
-####12.5日志：
-+ 测试调用python的进程和输入输出流。
-
-####12.6日志：
-+ 添加python脚本，用于向hdu提交代码。
-
-####12.9日志：
-+ 前几天发了几天的烧，今天开始打比赛了，之后就要期末复习了，暂时停止更新吧。
-
-#### 1.8日志：
-
-+ 恢复更新。
+用JAVA+MySQL+Python脚本实现了OJ的基本功能，包括实现编译、运行、评判、VirtualJudge的功能。
 
 
 
+### 2、主要界面：
 
 
 
-#### 1.27日志：
+2.1 首页
 
-~~~~偷偷地鸽几天 : )
-	新年快乐!!!
-	祝新的一年开开心心。愿温馨的祝福、幸福的关心和友好的问候，在新春佳节来到你身边，伴你左右。
-	愿新年带给你平安、爱和新的bug : )
-~~~~
+​	![index](.\img\index.png)
+
+2.1 题目列表
+
+![problem_list](.\img\problem_list.png)
 
 
 
-		Happy New Year !!!
-		Much joy to you in the up coming year. May the warmest wishes, happy thoughts and friendly greetings come at New Year and stay with you all the year through.
-		May the coming new year bring you peace, love and new bug : )
+2.2 题目界面![problem](.\img\problem.png)
+
+2.3 提交题目界面
+
+![problem_submit](.\img\problem_submit.png)
+
+
+
+2. 4提交状态界面
+
+![status](.\img\status.png)
+
+
+
+### 3、数据库
+
+
+
+/*
+
+数据库生成sql语句：
+
+Source Database       : zjgsu_oj
+
+Target Server Type    : MYSQL
+Target Server Version : 50625
+File Encoding         : 65001
+
+Date: 2017-02-22 18:40:16
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for problem
+-- ----------------------------
+DROP TABLE IF EXISTS `problem`;
+CREATE TABLE `problem` (
+  `problem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) NOT NULL DEFAULT '',
+  `description` text,
+  `input` text,
+  `output` text,
+  `sample_input` text,
+  `sample_output` text,
+  `spj` char(1) NOT NULL DEFAULT '0',
+  `hint` text,
+  `source` varchar(100) DEFAULT NULL,
+  `in_date` datetime DEFAULT NULL,
+  `time_limit` int(11) NOT NULL DEFAULT '0',
+  `memory_limit` int(11) NOT NULL DEFAULT '0',
+  `defunct` char(1) NOT NULL DEFAULT 'N',
+  `accepted` int(11) DEFAULT '0',
+  `submit` int(11) DEFAULT '0',
+  `solved` int(11) DEFAULT '0',
+  PRIMARY KEY (`problem_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1118 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for solution
+-- ----------------------------
+DROP TABLE IF EXISTS `solution`;
+CREATE TABLE `solution` (
+  `problem_id` int(11) NOT NULL,
+  `input` text,
+  `output` text,
+  PRIMARY KEY (`problem_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for submitstate
+-- ----------------------------
+DROP TABLE IF EXISTS `submitstate`;
+CREATE TABLE `submitstate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `problem_id` int(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `codeType` char(10) DEFAULT 'java',
+  `memory` varchar(20) DEFAULT NULL,
+  `runtime` varchar(20) DEFAULT NULL,
+  `submitDate` date NOT NULL,
+  `codeLength` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for user_info
+-- ----------------------------
+DROP TABLE IF EXISTS `user_info`;
+CREATE TABLE `user_info` (
+  `uid` int(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `nickname` varchar(30) NOT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `submit` int(20) unsigned zerofill DEFAULT '00000000000000000000',
+  `accept` int(20) unsigned zerofill DEFAULT '00000000000000000000',
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+
+
+
+
+
+### 4、Python Script
+
+problem_spider 用于爬取hdu的题目 ，运行方式： python problem_spider.py。
+
+可修改要爬取题目的题号,文件中的参数为problem_id。
+
+
+
+submit_code 用于向hdu提交题目，运行方式： python submit_code.py。
+
+输入参数为problem_id、language、code。将会自动登录我的账号用于提交、并返回提交状态。
+
+
+
+### 5、其他
+
+该项目有很多不足的地方，将会继续更新下去。
+
+有什么建议请发送至邮箱 ginray0215@gmail.com，谢谢大家。
+
+
+
