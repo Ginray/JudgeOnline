@@ -10,25 +10,27 @@
 
 2.1 首页
 
-​	![index](img\index.png)
+​	![index](img/index.png)
+
+
 
 2.1 题目列表
 
-![problem_list](img\problem_list.png)
+![problem_list](img/problem_list.png)
 
 
 
-2.2 题目界面![problem](img\problem.png)
+2.2 题目界面![problem](img/problem.png)
 
 2.3 提交题目界面
 
-![problem_submit](img\problem_submit.png)
+![problem_submit](img/problem_submit.png)
 
 
 
 2. 4提交状态界面
 
-![status](img\status.png)
+![status](img/status.png)
 
 
 
@@ -180,7 +182,6 @@ CREATE TABLE user_info (
   PRIMARY KEY (uid)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
-
 
 
 ~~~
