@@ -4,6 +4,8 @@
 
 
 
+
+
 ### 2、主要界面：
 
 
@@ -31,6 +33,8 @@
 2. 4提交状态界面
 
 ![status](img/status.png)
+
+
 
 
 
@@ -201,6 +205,14 @@ problem_spider 用于爬取hdu的题目 ，运行方式： python problem_spider
 submit_code 用于向hdu提交题目，运行方式： python submit_code.py。
 
 输入参数为problem_id、language、code。将会自动登录我的账号用于提交、并返回提交状态。
+
+
+
+需要创建目录C:\Environment\Output\Java\out用于java代码的编译。
+
+目录C:\Environment\python_script并保存submit_code.py用于提交代码。
+
+
 
 
 

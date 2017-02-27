@@ -47,7 +47,7 @@ public class JugeManager{
 			Target target = new Target();
 			target.fileName = "Main";
 			target.targetId = problemId + "_" + userId;
-			target.filePath = "D:\\My Documents\\Java\\out\\";
+			target.filePath = "C:\\Environment\\Output\\Java\\out\\";
 			target.fileExtension = ".java";
 			target.objExtension = ".class";
 			target.userId=Integer.parseInt(userId);

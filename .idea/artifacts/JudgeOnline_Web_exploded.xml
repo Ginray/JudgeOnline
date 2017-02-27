@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="JudgeOnline:Web exploded">
+  <artifact type="war" name="JudgeOnline:Web exploded">
     <output-path>D:/tomcat/webapps</output-path>
-    <root id="root">
+    <root id="archive" name="JudgeOnline_Web exploded.war">
       <element id="javaee-facet-resources" facet="JudgeOnline/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

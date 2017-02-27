@@ -15,7 +15,8 @@ public class VirtualJudge {
 
     public static void judge(String pro_id,String code_type,String code,String userId) {
         rt = Runtime.getRuntime();
-        String ss = "python G:\\IDEAProjects\\JudgeOnline\\python_script\\submit_code.py";
+
+        String ss = "python C:\\Environment\\python_script\\submit_code.py";
         try {
             pc = rt.exec(ss);
         } catch (IOException e) {
