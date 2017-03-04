@@ -1,5 +1,6 @@
 package com.zjgsu.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -13,10 +14,14 @@ import model.UserInfo;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.python.antlr.ast.keyword;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zjgsu.utils.HibernateSessionFactory;
+
+import static oracle.net.aso.C00.p;
+
 @Service
 @Transactional
 public class ProblemServiceImpl implements  ProblemService{
@@ -76,18 +81,27 @@ public class ProblemServiceImpl implements  ProblemService{
 			return null;
 		}
 	}
-	
+
+	static List<Problem> P = new ArrayList<Problem>();
+
 	@Override
 	public List<Problem> showProblem() {
-		String sql="select * from problem order by problem_id";
-		Session s=HibernateSessionFactory.getSession();
-		Query query = s.createSQLQuery(sql).addEntity(Problem.class);
-		List<Problem> li = query.list();
-		if(li.size()>0){
-			return li;
+		//因为problem现阶段是暂时不变的，因此保存到List中，优化网页载入速度。
+		if(P.size()==0) {
+			String sql = "select * from problem order by problem_id";
+			Session s = HibernateSessionFactory.getSession();
+			Query query = s.createSQLQuery(sql).addEntity(Problem.class);
+			List<Problem> li = query.list();
+			P = li;
+			if (li.size() > 0) {
+				return li;
+			} else {
+				System.out.println("ProblemServiceImpl出错");
+				return null;
+			}
 		}else{
-			System.out.println("ProblemServiceImpl出错");
-			return null;
+			System.out.println("ProblemList 已经存在,直接调用");
+			return P;
 		}
 	}
 

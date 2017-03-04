@@ -12,8 +12,8 @@
     <base href="<%=basePath%>">
     <%
         String problemId = request.getParameter("problemId");
-        String re_URL= "/JudgeOnline/problem_showProblem.action?problemId="+problemId;
-        session.setAttribute("re_URL",re_URL);
+        String re_URL = "/JudgeOnline/problem_showProblem.action?problemId=" + problemId;
+        session.setAttribute("re_URL", re_URL);
     %>
     <title>Problem-<%=problemId%>
     </title>
@@ -154,9 +154,10 @@
                 Language:
                 <select class="combobox form-control">
                     <option value="JAVA">JAVA</option>
+                    <!--
                     <option value="GNU_C">GNU C</option>
                     <option value="GNU_C++">GNU C++</option>
-
+                    -->
                 </select>
 
                 </h4>
@@ -208,7 +209,7 @@
             return false;
         }
 
-        if (codeText !== null && (codeText.indexOf("windows.h") >= 0   ) ){
+        if (codeText !== null && (codeText.indexOf("windows.h") >= 0   )) {
             $.bootstrapGrowl("Illegal  code !", {
                 ele: 'body',
                 type: 'danger',

@@ -29,7 +29,7 @@
                 <a href="ranklist.jsp">Ranklist</a>
             </li>
             <li>
-                <a href="counter.jsp">SOLO!</a>
+                <a href="contest.jsp">Contest</a>
                 <!--
                 <a href="counter.jsp">SOLO! <span class="label label-warning">Alpha</span></a>
                 -->
@@ -39,18 +39,14 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<strong class="caret"></strong></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href=admin.jsp>admin</a>
+                        <a href=admin.jsp>Admin</a>
                     </li>
                     <li class="divider">
                     </li>
                     <li>
-                        <a href="#">Separated link</a>
+                        <a href="counter.jsp">SOLO!</a>
                     </li>
-                    <li class="divider">
-                    </li>
-                    <li>
-                        <a href="#">One more separated link</a>
-                    </li>
+
                 </ul>
             </li>
         </ul>

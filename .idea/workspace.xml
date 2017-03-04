@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88e9330-1a61-4abc-88ff-5ddc5c675fe3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/manager/JugeManager.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/manager/JugeManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/oj/VirtualJudge.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/oj/VirtualJudge.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/JudgeOnline_Web_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/JudgeOnline_Web_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebRoot/contest.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/service/ProblemServiceImpl.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/service/ProblemServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zjgsu/manager/JugeManager.java" afterPath="$PROJECT_DIR$/src/com/zjgsu/manager/JugeManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zjgsu/oj/VirtualJudge.java" afterPath="$PROJECT_DIR$/src/com/zjgsu/oj/VirtualJudge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/menu.jsp" afterPath="$PROJECT_DIR$/WebRoot/menu.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/problem.jsp" afterPath="$PROJECT_DIR$/WebRoot/problem.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zjgsu/service/ProblemServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/zjgsu/service/ProblemServiceImpl.java" />
     </list>
     <ignored path="JudgeOnline.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,28 +44,38 @@
       <file leaf-file-name="JudgeServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/zjgsu/service/JudgeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="85" column="87" selection-start-line="85" selection-start-column="87" selection-end-line="85" selection-end-column="87" />
+            <state relative-caret-position="321">
+              <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VirtualJudge.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/zjgsu/oj/VirtualJudge.java">
+      <file leaf-file-name="menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1176">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="312">
+              <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JugeManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/zjgsu/manager/JugeManager.java">
+      <file leaf-file-name="contest.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/contest.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
+            <state relative-caret-position="326">
+              <caret line="42" column="15" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="templet.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/templet.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -111,24 +121,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProblemServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProblemServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/zjgsu/service/ProblemServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1612">
-              <caret line="80" column="40" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+            <state relative-caret-position="66">
+              <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="48" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#774#775#0" expanded="false" />
-                <element signature="e#830#831#0" expanded="false" />
-                <marker date="1487425546861" expanded="true" signature="1056:1098" ph="select * fro... submitstate" />
-                <marker date="1487425546861" expanded="true" signature="1795:1831" ph="select * fro... user_info" />
-                <marker date="1487425546861" expanded="true" signature="2201:2222" ph="select * fro... problem" />
-                <marker date="1487425546861" expanded="true" signature="2201:2242" ph="select * fro... problem" />
-                <marker date="1487425546861" expanded="true" signature="2576:2617" ph="select * fro... problem" />
-                <marker date="1487425546861" expanded="true" signature="3694:3832" ph="select * fro... problem" />
-                <marker date="1487425546861" expanded="true" signature="4200:4287" ph="select * fro... submitstate" />
-                <marker date="1487425546861" expanded="true" signature="4653:4695" ph="select * fro... solution" />
-                <marker date="1487425546861" expanded="true" signature="5096:5138" ph="select * fro... solution" />
+                <element signature="e#2279#2288#0" expanded="true" />
+                <marker date="1488615092692" expanded="true" signature="1159:1201" ph="select * fro... submitstate" />
+                <marker date="1488615092692" expanded="true" signature="1898:1934" ph="select * fro... user_info" />
+                <marker date="1488615092692" expanded="true" signature="2423:2444" ph="select * fro... problem" />
+                <marker date="1488615092692" expanded="true" signature="2423:2464" ph="select * fro... problem" />
+                <marker date="1488615092692" expanded="true" signature="2900:2941" ph="select * fro... problem" />
+                <marker date="1488615092692" expanded="true" signature="4018:4156" ph="select * fro... problem" />
+                <marker date="1488615092692" expanded="true" signature="4524:4611" ph="select * fro... submitstate" />
+                <marker date="1488615092692" expanded="true" signature="4977:5019" ph="select * fro... solution" />
+                <marker date="1488615092692" expanded="true" signature="5420:5462" ph="select * fro... solution" />
               </folding>
             </state>
           </provider>
@@ -150,6 +158,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -190,18 +199,19 @@
         <option value="$PROJECT_DIR$/src/model/UserInfo.java" />
         <option value="$PROJECT_DIR$/src/model/SolutionEntity.java" />
         <option value="$PROJECT_DIR$/src/com/zjgsu/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/WebRoot/menu.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/personal_info.jsp" />
         <option value="$PROJECT_DIR$/src/com/zjgsu/oj/JugeSystem.java" />
         <option value="$PROJECT_DIR$/src/beans.xml" />
         <option value="$PROJECT_DIR$/src/com/zjgsu/test/test_jython.java" />
         <option value="$PROJECT_DIR$/src/com/zjgsu/service/JudgeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/WebRoot/problem.jsp" />
-        <option value="$PROJECT_DIR$/src/com/zjgsu/service/ProblemServiceImpl.java" />
         <option value="$PROJECT_DIR$/WebRoot/problem_list.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/status.jsp" />
-        <option value="$PROJECT_DIR$/src/com/zjgsu/oj/VirtualJudge.java" />
         <option value="$PROJECT_DIR$/src/com/zjgsu/manager/JugeManager.java" />
+        <option value="$PROJECT_DIR$/src/com/zjgsu/oj/VirtualJudge.java" />
+        <option value="$PROJECT_DIR$/WebRoot/problem.jsp" />
+        <option value="$PROJECT_DIR$/src/com/zjgsu/service/ProblemServiceImpl.java" />
+        <option value="$PROJECT_DIR$/WebRoot/menu.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/contest.jsp" />
       </list>
     </option>
   </component>
@@ -293,7 +303,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -310,6 +320,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="JudgeOnline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JudgeOnline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JudgeOnline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebRoot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -367,53 +391,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JudgeOnline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JudgeOnline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zjgsu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JudgeOnline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JudgeOnline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zjgsu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1124,7 +1104,9 @@
       <workItem from="1488001779619" duration="545000" />
       <workItem from="1488092378008" duration="2445000" />
       <workItem from="1488116270127" duration="2973000" />
-      <workItem from="1488204672208" duration="3885000" />
+      <workItem from="1488204672208" duration="4044000" />
+      <workItem from="1488212382826" duration="247000" />
+      <workItem from="1488612675381" duration="3821000" />
     </task>
     <task id="LOCAL-00001" summary="change to IDEA project">
       <created>1486041118231</created>
@@ -1217,7 +1199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487761878163</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="更改运行代码的路径并部署项目至www.ginray.me">
+      <created>1488209236056</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1488209236056</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1253,7 +1242,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95410000" />
+    <option name="totallyTimeSpent" value="99637000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1289,10 +1278,9 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.20724802" sideWeight="0.49570817" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.20990312" sideWeight="0.50396377" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15718885" sideWeight="0.48584372" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15665236" sideWeight="0.48584372" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19313304" sideWeight="0.51075876" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15879828" sideWeight="0.5141563" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1301,6 +1289,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1324,7 +1313,8 @@
     <MESSAGE value="修复VJ不能正确提交回车键的问题&#10;" />
     <MESSAGE value="修复不能爬取Time和Memory的问题。" />
     <MESSAGE value="update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
+    <MESSAGE value="更改运行代码的路径并部署项目至www.ginray.me" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改运行代码的路径并部署项目至www.ginray.me" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1341,24 +1331,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebRoot/problem_test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3822">
-          <caret line="147" column="47" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/test_ssh.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/templet.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1428,13 +1404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1846">
           <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/menu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1592,13 +1561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/problem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5460">
-          <caret line="210" column="68" selection-start-line="210" selection-start-column="68" selection-end-line="210" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/search_problem.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1638,15 +1600,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1690">
           <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/status.jsp">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3874">
-          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1227">
+          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/zjgsu/manager/JugeManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1846">
+          <caret line="99" column="39" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#987#988#0" expanded="false" />
+            <element signature="e#1014#1015#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1674,27 +1646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/zjgsu/service/ProblemServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1612">
-          <caret line="80" column="40" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#774#775#0" expanded="false" />
-            <element signature="e#830#831#0" expanded="false" />
-            <marker date="1487425546861" expanded="true" signature="1056:1098" ph="select * fro... submitstate" />
-            <marker date="1487425546861" expanded="true" signature="1795:1831" ph="select * fro... user_info" />
-            <marker date="1487425546861" expanded="true" signature="2201:2222" ph="select * fro... problem" />
-            <marker date="1487425546861" expanded="true" signature="2201:2242" ph="select * fro... problem" />
-            <marker date="1487425546861" expanded="true" signature="2576:2617" ph="select * fro... problem" />
-            <marker date="1487425546861" expanded="true" signature="3694:3832" ph="select * fro... problem" />
-            <marker date="1487425546861" expanded="true" signature="4200:4287" ph="select * fro... submitstate" />
-            <marker date="1487425546861" expanded="true" signature="4653:4695" ph="select * fro... solution" />
-            <marker date="1487425546861" expanded="true" signature="5096:5138" ph="select * fro... solution" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/problem_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3094">
@@ -1703,35 +1654,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/zjgsu/service/JudgeServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/problem.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="85" column="87" selection-start-line="85" selection-start-column="87" selection-end-line="85" selection-end-column="87" />
+        <state relative-caret-position="1369">
+          <caret line="157" column="56" selection-start-line="157" selection-start-column="56" selection-end-line="157" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/zjgsu/oj/VirtualJudge.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="-667">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/src/com/zjgsu/service/JudgeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1227">
-          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="321">
+          <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/zjgsu/manager/JugeManager.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/templet.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
+        <state relative-caret-position="302">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/status.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3874">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/contest.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="42" column="15" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/zjgsu/service/ProblemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="48" />
+          <folding>
+            <element signature="e#2279#2288#0" expanded="true" />
+            <marker date="1488615092692" expanded="true" signature="1159:1201" ph="select * fro... submitstate" />
+            <marker date="1488615092692" expanded="true" signature="1898:1934" ph="select * fro... user_info" />
+            <marker date="1488615092692" expanded="true" signature="2423:2444" ph="select * fro... problem" />
+            <marker date="1488615092692" expanded="true" signature="2423:2464" ph="select * fro... problem" />
+            <marker date="1488615092692" expanded="true" signature="2900:2941" ph="select * fro... problem" />
+            <marker date="1488615092692" expanded="true" signature="4018:4156" ph="select * fro... problem" />
+            <marker date="1488615092692" expanded="true" signature="4524:4611" ph="select * fro... submitstate" />
+            <marker date="1488615092692" expanded="true" signature="4977:5019" ph="select * fro... solution" />
+            <marker date="1488615092692" expanded="true" signature="5420:5462" ph="select * fro... solution" />
+          </folding>
         </state>
       </provider>
     </entry>
