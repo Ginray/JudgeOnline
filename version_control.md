@@ -84,3 +84,56 @@
 		Happy New Year !!!
 		Much joy to you in the up coming year. May the warmest wishes, happy thoughts and friendly greetings come at New Year and stay with you all the year through.
 		May the coming new year bring you peace, love and new bug : )
+
+
+
+
+
+#### 3.10日志：
+
+​	使用正则表达式对可能出现SQL注入的语句进行了过滤。
+
+​	之后要准备考研了，更新会很慢了，然而还有很多要解决的问题：
+
+- ~~搜索功能~~
+
+- ~~显示在线的人和人数~~
+
+- ~~完成Ranklist~~
+
+- ~~首页界面的小磁铁~~
+
+- 管理员界面
+
+- 比赛界面
+
+- ~~编译运行时的问题~~
+
+- C++支持
+
+- ~~status界面还有问题~~
+
+- ~~VJ的功能要加上~~
+
+- code solo 的功能​
+
+- status && statistic && discuss
+
+- ~~把查询数据库慢的操作可以先放到一个列表中~~
+
+- ~~对VJ提交的的状态的抓取~~
+
+- ~~对回车的处理~~
+
+- VJ提交的时候使用多线程
+
+- 当有多个提交时如何确定提交的user
+
+- ~~存在SQL注入漏洞（login界面）​~~
+
+- 使用Docker容器和沙箱限制代码运行的环境。
+
+  ​
+
+   希望自己能加油吧。
+

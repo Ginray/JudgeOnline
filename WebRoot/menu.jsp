@@ -302,6 +302,37 @@
             });
             return false;
         }
+        re= /select|update|delete|exec|count|'|"|=|;|>|<|-|%/i;
+        if ( re.test(username) )
+        {
+            //alert("请您不要在参数中输入特殊字符和SQL关键字！"); //注意中文乱码
+            $.bootstrapGrowl("Illegal Username !", {
+                ele: 'body', // which element to append to  绑定到某个元素
+                type: 'danger', // (null, 'info', 'danger', 'success')  提示的类型
+                offset: {from: 'top', amount: 30}, // 'top', or 'bottom' 相对顶部或者底部的距离
+                align: 'center', // ('left', 'right', or 'center')    位置 左右居中
+                width: 400, // (integer, or 'auto') 宽度
+                delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!  自动消失时间设置
+                allow_dismiss: true, // If true then will display a cross to close the popup. 是否出现小叉叉点击就取消提示框
+                stackup_spacing: 10 // spacing between consecutively stacked growls. 相邻提示框的间距
+            });
+            return false;
+        }
+        if ( re.test(password) )
+        {
+            //alert("请您不要在参数中输入特殊字符和SQL关键字！"); //注意中文乱码
+            $.bootstrapGrowl("Illegal Password !", {
+                ele: 'body', // which element to append to  绑定到某个元素
+                type: 'danger', // (null, 'info', 'danger', 'success')  提示的类型
+                offset: {from: 'top', amount: 30}, // 'top', or 'bottom' 相对顶部或者底部的距离
+                align: 'center', // ('left', 'right', or 'center')    位置 左右居中
+                width: 400, // (integer, or 'auto') 宽度
+                delay: 2000, // Time while the message will be displayed. It's not equivalent to the *demo* timeOut!  自动消失时间设置
+                allow_dismiss: true, // If true then will display a cross to close the popup. 是否出现小叉叉点击就取消提示框
+                stackup_spacing: 10 // spacing between consecutively stacked growls. 相邻提示框的间距
+            });
+            return false;
+        }
     }
     function check() {
         var username = document.getElementById("register_username").value;

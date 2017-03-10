@@ -51,6 +51,8 @@ public class UserServiceImpl implements UserService {
 
         try {
             String sql = "select * from user_info where username= ? and password=? ";
+            String test = "select * from user_info where username= "+userinfo.getUsername()+" and password="+userinfo.getPassword();
+            System.out.println(test);
             Query query = getSession().createSQLQuery(sql).addEntity(UserInfo.class);
             query.setString(0, userinfo.getUsername());
             query.setString(1, userinfo.getPassword());
