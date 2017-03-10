@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88e9330-1a61-4abc-88ff-5ddc5c675fe3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/service/UserServiceImpl.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/zjgsu/service/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/menu.jsp" afterPath="$PROJECT_DIR$/WebRoot/menu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zjgsu/service/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/zjgsu/service/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version_control.md" afterPath="$PROJECT_DIR$/version_control.md" />
     </list>
     <ignored path="JudgeOnline.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -248,7 +244,6 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
-    <option name="y" value="-9" />
     <option name="width" value="1932" />
     <option name="height" value="1048" />
   </component>
@@ -1115,7 +1110,7 @@
       <workItem from="1488204672208" duration="4044000" />
       <workItem from="1488212382826" duration="247000" />
       <workItem from="1488612675381" duration="4209000" />
-      <workItem from="1489124939060" duration="2994000" />
+      <workItem from="1489124939060" duration="3041000" />
     </task>
     <task id="LOCAL-00001" summary="change to IDEA project">
       <created>1486041118231</created>
@@ -1222,7 +1217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488616535735</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="使用正则表达式对可能出现SQL注入的语句进行了过滤。">
+      <created>1489131776016</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1489131776016</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1258,7 +1260,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103019000" />
+    <option name="totallyTimeSpent" value="103066000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1270,7 +1272,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
+    <frame x="-9" y="0" width="1932" height="1048" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1290,7 +1292,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49785408" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29784825" sideWeight="0.49570817" order="2" side_tool="false" content_ui="tabs" x="762" y="73" width="395" height="883" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29784825" sideWeight="0.49570817" order="2" side_tool="false" content_ui="tabs" x="762" y="73" width="395" height="883" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.20724802" sideWeight="0.49570817" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.20990312" sideWeight="0.50396377" order="9" side_tool="false" content_ui="tabs" />
@@ -1331,7 +1333,8 @@
     <MESSAGE value="update README.md" />
     <MESSAGE value="更改运行代码的路径并部署项目至www.ginray.me" />
     <MESSAGE value="因为problem现阶段是暂时不变的，因此保存到List中，优化网页载入速度" />
-    <option name="LAST_COMMIT_MESSAGE" value="因为problem现阶段是暂时不变的，因此保存到List中，优化网页载入速度" />
+    <MESSAGE value="使用正则表达式对可能出现SQL注入的语句进行了过滤。" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用正则表达式对可能出现SQL注入的语句进行了过滤。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
